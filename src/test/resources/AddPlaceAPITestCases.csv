@@ -1,0 +1,35 @@
+Test Case ID,Test Scenario,Test Type,Priority,Pre-conditions,Test Steps,Test Data,Expected Result
+TC_001,Add place with all valid fields,Positive,High,Valid API key available,"1. Set endpoint URL
+2. Add Content-Type header
+3. Add API key as query param
+4. Send POST with complete body
+5. Verify response","{""location"":{""lat"":""12.9716"",""lng"":77.5946},""accuracy"":50,""name"":""Test Place"",""phone_number"":""+91 9876543210"",""address"":""123 Test Street"",""types"":[""shop""],""website"":""http://test.com"",""language"":""English""}","Status: 200, Response contains status=OK, place_id, scope=APP"
+TC_002,Add place with mandatory fields only,Positive,High,Valid API key available,"1. Send POST with only location and name
+2. Verify response","{""location"":{""lat"":""12.9716"",""lng"":77.5946},""name"":""Minimal Place""}","Status: 200, place_id generated"
+TC_003,Add place without API key,Negative,Critical,None,"1. Send POST request without key parameter
+2. Verify error response",Valid body without key param,"Status: 401/403, Error message returned"
+TC_004,Add place with invalid API key,Negative,Critical,None,"1. Send POST with invalid key=wrongkey123
+2. Verify error response",key=wrongkey123,"Status: 401/403, Invalid key error"
+TC_005,Add place without location field,Negative,High,Valid API key,"1. Send POST without location object
+2. Verify validation error","{""name"":""Test Place"",""address"":""Test""}","Status: 400, Location required error"
+TC_006,Add place without name field,Negative,High,Valid API key,"1. Send POST without name field
+2. Verify validation error","{""location"":{""lat"":""12.9716"",""lng"":77.5946}}","Status: 400, Name required error"
+TC_007,Add place with empty request body,Negative,High,Valid API key,"1. Send POST with empty JSON {}
+2. Verify error",{},"Status: 400, Invalid request error"
+TC_008,Add place with invalid JSON syntax,Negative,High,Valid API key,"1. Send malformed JSON
+2. Verify parse error","{""name"":""Test""","Status: 400, JSON parse error"
+TC_009,Add place with wrong HTTP method (GET),Negative,Medium,Valid API key,"1. Send GET request to add endpoint
+2. Verify method not allowed",N/A,"Status: 405, Method not allowed"
+TC_010,Add place with wrong Content-Type,Negative,Medium,Valid API key,"1. Set Content-Type: text/plain
+2. Send POST request",Valid JSON body,"Status: 400/415, Unsupported media type"
+TC_011,Add place with special characters in name,Positive,Medium,Valid API key,"1. Include special chars in name
+2. Verify place created","{""location"":{""lat"":""12.9716"",""lng"":77.5946},""name"":""Café & Bar's #1""}","Status: 200, Special chars accepted"
+TC_012,Add place with empty name string,Negative,Medium,Valid API key,"1. Send POST with name as empty string
+2. Verify validation","{""location"":{""lat"":""12.9716"",""lng"":77.5946},""name"":""""}","Status: 400, Name cannot be empty"
+TC_013,Add place - verify response headers,Positive,Medium,Valid API key,"1. Send valid POST request
+2. Check response headers",Valid complete body,"Content-Type: application/json; charset=UTF-8"
+TC_014,Add place - SQL injection attempt,Negative,High,Valid API key,"1. Send SQL injection in name field
+2. Verify no SQL execution","{""location"":{""lat"":""12.9716"",""lng"":77.5946},""name"":""Test'; DROP TABLE--""}","Status: 200/400, Input sanitized, no SQL execution"
+TC_015,Add place with invalid data type for accuracy,Negative,Medium,Valid API key,"1. Send accuracy as string instead of number
+2. Verify type validation","{""location"":{""lat"":""12.9716"",""lng"":77.5946},""name"":""Test"",""accuracy"":""fifty""}","Status: 400, Invalid data type error"
+,,,,,,,
