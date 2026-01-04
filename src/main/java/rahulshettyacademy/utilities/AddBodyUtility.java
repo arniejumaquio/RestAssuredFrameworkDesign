@@ -1,5 +1,8 @@
 package rahulshettyacademy.utilities;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class AddBodyUtility {
 
     public static String getAddPlaceBody(){
@@ -80,6 +83,19 @@ public class AddBodyUtility {
                 "}\n";
 
         return body;
+    }
+
+
+    public static  HashMap<String,Object> getAddBookBody(ArrayList<String> data){
+
+        HashMap<String,Object> body = new HashMap<String,Object>();
+        body.put("name",data.get(1));
+        body.put("isbn",data.get(2));
+        body.put("aisle",data.get(3));
+        body.put("author",data.get(4));
+
+        return body;
+
     }
 
     public static String getAddBookBodyMissingField(String fieldToSkip, String name, String isbn, String aisle, String author){
