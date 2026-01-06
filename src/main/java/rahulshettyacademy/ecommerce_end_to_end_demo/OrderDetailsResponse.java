@@ -2,6 +2,9 @@ package rahulshettyacademy.ecommerce_end_to_end_demo;
 
 public class OrderDetailsResponse {
 
+    private  Data data;
+    private String message;
+
     public Data getData() {
         return data;
     }
@@ -18,7 +21,6 @@ public class OrderDetailsResponse {
         this.message = message;
     }
 
-    private  Data data;
-    private String message;
+
 
 }

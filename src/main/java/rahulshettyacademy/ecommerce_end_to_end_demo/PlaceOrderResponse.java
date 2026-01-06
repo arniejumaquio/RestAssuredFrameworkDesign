@@ -5,6 +5,8 @@ import java.util.List;
 public class PlaceOrderResponse {
 
     private List<String> orders;
+    private List<String>  productOrderId;
+    private String message;
 
     public List<String> getOrders() {
         return orders;
@@ -30,7 +32,6 @@ public class PlaceOrderResponse {
         this.message = message;
     }
 
-    private List<String>  productOrderId;
-    private String message;
+
 
 }

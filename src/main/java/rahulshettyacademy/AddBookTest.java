@@ -65,7 +65,7 @@ public class AddBookTest {
            String actualId = actualIsbn + actualAisle;
 
            if(!(actualId.equalsIgnoreCase(isbn+aisle))){
-               System.out.println("means its deleted");
+               //means its deleted successfuly thats why its not showing in the get response
                Assert.assertTrue(true);
            }else {
                Assert.assertTrue(false);

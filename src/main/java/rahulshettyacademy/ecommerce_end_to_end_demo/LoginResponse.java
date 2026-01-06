@@ -3,6 +3,8 @@ package rahulshettyacademy.ecommerce_end_to_end_demo;
 public class LoginResponse {
 
     private String token;
+    private String userId;
+    private String message;
 
     public String getToken() {
         return token;
@@ -28,8 +30,7 @@ public class LoginResponse {
         this.message = message;
     }
 
-    private String userId;
-    private String message;
+
 
 
 

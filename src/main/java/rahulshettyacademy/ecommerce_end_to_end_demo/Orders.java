@@ -2,6 +2,9 @@ package rahulshettyacademy.ecommerce_end_to_end_demo;
 
 public class Orders {
 
+    private String country;
+    private String productOrderedId;
+
     public String getCountry() {
         return country;
     }
@@ -18,7 +21,6 @@ public class Orders {
         this.productOrderedId = productOrderedId;
     }
 
-    private String country;
-    private String productOrderedId;
+
 
 }

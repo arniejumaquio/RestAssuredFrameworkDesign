@@ -3,6 +3,7 @@ package rahulshettyacademy.ecommerce_end_to_end_demo;
 public class LoginRequest {
 
     private String userEmail;
+    private String userPassword;
 
     public String getUserEmail() {
         return userEmail;
@@ -20,7 +21,7 @@ public class LoginRequest {
         this.userPassword = userPassword;
     }
 
-    private String userPassword;
+
 
 
 

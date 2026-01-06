@@ -3,6 +3,11 @@ package rahulshettyacademy.pojo_classes_demo.deserialization;
 public class CourseDetails {
 
     private String instructor;
+    private String url;
+    private String services;
+    private String expertise;
+    private Courses courses;
+    private String linkedIn;
 
     public String getInstructor() {
         return instructor;
@@ -52,11 +57,7 @@ public class CourseDetails {
         this.linkedIn = linkedin;
     }
 
-    private String url;
-    private String services;
-    private String expertise;
-    private Courses courses;
-    private String linkedIn;
+
 
 
 

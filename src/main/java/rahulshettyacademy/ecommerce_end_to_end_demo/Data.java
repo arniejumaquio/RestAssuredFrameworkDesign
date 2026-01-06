@@ -3,6 +3,15 @@ package rahulshettyacademy.ecommerce_end_to_end_demo;
 public class Data {
 
     private String _id;
+    private String orderById;
+    private String orderBy;
+    private String productOrderedId;
+    private String productName;
+    private String country;
+    private String productDescription;
+    private String productImage;
+    private String orderPrice;
+    private String __v;
 
     public String get_id() {
         return _id;
@@ -84,14 +93,6 @@ public class Data {
         this.__v = __v;
     }
 
-    private String orderById;
-    private String orderBy;
-    private String productOrderedId;
-    private String productName;
-    private String country;
-    private String productDescription;
-    private String productImage;
-    private String orderPrice;
-    private String __v;
+
 
 }

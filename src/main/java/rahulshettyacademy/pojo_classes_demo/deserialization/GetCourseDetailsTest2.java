@@ -79,10 +79,12 @@ public class GetCourseDetailsTest2 {
 
         List<WebAutomation> webAutomations2 = courseDetails.getCourses().getWebAutomation();
         for(int i = 0; i < webAutomations2.size(); i++){
+            actualCourseTitles.add(webAutomations2.get(i).getCourseTitle());
             actualCoursePrices.add(webAutomations2.get(i).getPrice());
         }
 
 
+        Assert.assertTrue(actualCourseTitles.equals(expectedCourseTitles));
         Assert.assertTrue(actualCoursePrices.equals(expectedCoursePrices));
 
 
