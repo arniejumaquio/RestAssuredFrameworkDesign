@@ -1,6 +1,7 @@
 package rahulshettyacademy.utilities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class AddBodyUtility {
@@ -154,6 +155,25 @@ public class AddBodyUtility {
 
         return body;
 
+    }
+
+
+    //GraphQL
+    public static String getGraphQLQueryBody(String characterId,String episode){
+
+        //19668
+        String body = "{\"query\":\"query{\\n  \\n character(characterId:"+characterId+")\\n  {\\n    name\\n    status\\n    location\\n    {\\n      dimension\\n      type\\n    }\\n    \\n    episodes\\n    {\\n      air_date\\n    }\\n  }\\n  \\n  episodes(filters:{episode:\\\""+episode+"\\\"})\\n  {\\n    result\\n    {\\n      name\\n      air_date\\n      episode\\n      created\\n    }\\n   \\n  }\\n  \\n\\n  \\n  \\n \\n  \\n}\",\"variables\":null}";
+        return body;
+    }
+
+    public static String getGraphQLMutationBody(String episodeName,String episodeAirDate,String episodeNumber,
+                                                String locationName,String locationType,String locationDimension,String characterName,String characterType,
+                                                String characterStatus,String characterSpecies,String characterGender,String characterImage,int originId,int locationId,
+                                                int[] locationIds){
+
+        //19668
+        String body = "{\"query\":\"mutation{\\n  \\n  createEpisode(episode:{name:\\\""+episodeName+"\\\",air_date:\\\""+episodeAirDate+"\\\",episode:\\\""+episodeNumber+"\\\"})\\n  {\\n    id\\n  }\\n  \\n  createLocation(location:{name:\\\""+locationName+"\\\",type:\\\""+locationType+"\\\",dimension:\\\""+locationDimension+"\\\"})\\n  {\\n    id\\n  }\\n  \\n  createCharacter(character:{name:\\\""+characterName+"\\\",type:\\\""+characterType+"\\\",status:\\\""+characterStatus+"\\\",species:\\\""+characterSpecies+"\\\",gender:\\\""+characterGender+"\\\",image:\\\""+characterImage+"\\\",originId:"+originId+",locationId:"+locationId+"})\\n  {\\n    id\\n  }\\n  \\n  deleteLocations(locationIds:"+ Arrays.toString(locationIds)+")\\n  {\\n    locationsDeleted\\n  }\\n  \\n}\",\"variables\":null}";
+        return body;
     }
 
 
