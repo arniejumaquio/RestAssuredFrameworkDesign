@@ -39,10 +39,10 @@ public class JSONUtility {
     public static List<HashMap<String, String>> getDataFromJsonFile(String filePath) throws IOException {
 
         //convert json file to string
-        String data = FileUtils.readFileToString(new File(System.getProperty("user.dir") + filePath));
+        String jsonString = FileUtils.readFileToString(new File(System.getProperty("user.dir") + filePath));
         //convert json string to hashmap
         ObjectMapper objectMapper = new ObjectMapper();
-        List<HashMap<String, String>> listOfData = objectMapper.readValue(data, new TypeReference<List<HashMap<String, String>>>() {
+        List<HashMap<String, String>> listOfData = objectMapper.readValue(jsonString, new TypeReference<List<HashMap<String, String>>>() {
         });
 
         return listOfData;

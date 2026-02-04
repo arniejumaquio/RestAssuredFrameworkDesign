@@ -31,6 +31,31 @@ public class AddBodyUtility {
     }
 
 
+    public static String getAddPlaceBody(String lat,String lng,String accuracy,String name,String phoneNumber,String address,String website,String language){
+
+        String body = "{\n" +
+                "  \"location\": {\n" +
+                "    \"lat\": "+lat+",\n" +
+                "    \"lng\": "+lng+"\n" +
+                "  },\n" +
+                "  \"accuracy\": "+accuracy+",\n" +
+                "  \"name\": \""+name+"\",\n" +
+                "  \"phone_number\": \""+phoneNumber+"\",\n" +
+                "  \"address\": \""+address+"\",\n" +
+                "  \"types\": [\n" +
+                "    \"shoe park\",\n" +
+                "    \"shop\"\n" +
+                "  ],\n" +
+                "  \"website\": \""+website+"\",\n" +
+                "  \"language\": \""+language+"\"\n" +
+                "}\n" +
+                "\n";
+
+
+        return body;
+    }
+
+
 
     public static String getUpdatePlaceBody(String placeId,String address){
 

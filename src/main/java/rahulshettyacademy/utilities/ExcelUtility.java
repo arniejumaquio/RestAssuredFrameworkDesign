@@ -14,11 +14,11 @@ import java.util.Iterator;
 
 public class ExcelUtility {
 
-    public static ArrayList<String> getDataFromExcel(String excelPath,String nameSheet,String columnName,String rowName) throws IOException {
+    public static ArrayList<String> getDataFromExcel(String fileName,String nameSheet,String columnName,String rowName) throws IOException {
 
         ArrayList<String> data = new ArrayList<String>();
 
-        FileInputStream excelFileStream = new FileInputStream(System.getProperty("user.dir")+excelPath);
+        FileInputStream excelFileStream = new FileInputStream(System.getProperty("user.dir")+"/src/main/resources/test_data/"+fileName);
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(excelFileStream);
         int numOfSheets = xssfWorkbook.getNumberOfSheets();
         for(int i = 0; i < numOfSheets; i++){
@@ -43,7 +43,6 @@ public class ExcelUtility {
 
                     counter++;
                 }
-
 
 
                 while (rowIterator.hasNext()){
@@ -80,5 +79,49 @@ public class ExcelUtility {
 
 
     }
+
+
+    public static ArrayList<String> getAllRowDataFromExcel(String fileName,String sheetName) throws IOException {
+
+        FileInputStream excelInputStream = new FileInputStream( System.getProperty("user.dir")+"/src/main/resources/test_data/"+fileName );
+        XSSFWorkbook xssfWorkbook = new XSSFWorkbook(excelInputStream);
+        XSSFSheet xssfSheet = xssfWorkbook.getSheet(sheetName);
+        Iterator<Row> rowIterator = xssfSheet.iterator();
+        ArrayList<String> rowDatas = new ArrayList<String>();
+
+
+        while (rowIterator.hasNext()){
+
+          Row eachRow =  rowIterator.next();
+          Iterator<Cell> cellIterator = eachRow.cellIterator();
+
+          while (cellIterator.hasNext()){
+
+              Cell eachCell = cellIterator.next();
+
+              if(eachCell.getCellType() == CellType.STRING){
+                  rowDatas.add(eachCell.getStringCellValue());
+              }else if( eachCell.getCellType()== CellType.BOOLEAN){
+                  rowDatas.add(String.valueOf(eachCell.getBooleanCellValue()));
+              }else if(eachCell.getCellType() == CellType.NUMERIC){
+                  rowDatas.add(String.valueOf(eachCell.getNumericCellValue()));
+              } else{
+                  System.out.println("Value cannot be added to the list");
+
+              }
+
+
+          }
+
+
+        }
+
+
+        return rowDatas;
+
+
+
+    }
+
 
 }

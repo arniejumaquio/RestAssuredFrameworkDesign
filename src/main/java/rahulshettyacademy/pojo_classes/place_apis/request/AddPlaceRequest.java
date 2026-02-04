@@ -5,6 +5,29 @@ import java.util.List;
 public class AddPlaceRequest {
 
     private Location location;
+    private Integer accuracy;
+    private String name;
+    private  String phone_number;
+    private String address;
+    private List<String> types;
+    private  String website;
+    private String language;
+
+    public AddPlaceRequest(Location location,Integer accuracy,String name,String phone_number,String address,List<String> types,String website,String language){
+
+        this.location = location;
+        this.accuracy = accuracy;
+        this.name = name;
+        this.phone_number = phone_number;
+        this.address = address;
+        this.types = types;
+        this.website = website;
+        this.language = language;
+    }
+
+    public AddPlaceRequest(){
+
+    }
 
     public Location getLocation() {
         return location;
@@ -70,12 +93,5 @@ public class AddPlaceRequest {
         this.language = language;
     }
 
-    private Integer accuracy;
-    private String name;
-    private  String phone_number;
-    private String address;
-    private List<String> types;
-    private  String website;
-    private String language;
 
 }

@@ -2,6 +2,9 @@ package rahulshettyacademy.pojo_classes.place_apis.response;
 
 public class Location {
 
+    private String latitude;
+    private String longitude;
+
     public String getLatitude() {
         return latitude;
     }
@@ -18,7 +21,5 @@ public class Location {
         this.longitude = longitude;
     }
 
-    private String latitude;
-    private String longitude;
 
 }

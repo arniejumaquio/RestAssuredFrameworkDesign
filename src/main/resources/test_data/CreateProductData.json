@@ -1,0 +1,12 @@
+[
+
+  {
+    "productName": "Test Product",
+    "productCategory": "fashion",
+    "productSubCategory": "shirts",
+    "productPrice": "10000000",
+    "productDescription": "Fashion",
+    "productFor": "Tombits"
+  }
+
+]

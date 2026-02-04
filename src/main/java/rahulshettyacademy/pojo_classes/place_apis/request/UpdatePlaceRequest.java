@@ -3,6 +3,8 @@ package rahulshettyacademy.pojo_classes.place_apis.request;
 public class UpdatePlaceRequest {
 
     private String place_id;
+    private String address;
+    private String key;
 
     public String getPlace_id() {
         return place_id;
@@ -27,10 +29,6 @@ public class UpdatePlaceRequest {
     public void setKey(String key) {
         this.key = key;
     }
-
-    private String address;
-    private String key;
-
 
 
 }

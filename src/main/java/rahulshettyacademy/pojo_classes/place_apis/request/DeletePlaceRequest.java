@@ -2,6 +2,8 @@ package rahulshettyacademy.pojo_classes.place_apis.request;
 
 public class DeletePlaceRequest {
 
+    private String place_id;
+
     public String getPlace_id() {
         return place_id;
     }
@@ -10,6 +12,6 @@ public class DeletePlaceRequest {
         this.place_id = place_id;
     }
 
-    private String place_id;
+
 
 }

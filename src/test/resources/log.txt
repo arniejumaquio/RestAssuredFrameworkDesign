@@ -11,24 +11,25 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "location": {
-        "lat": -38.383494,
-        "lng": 33.427362
-    },
-    "accuracy": 50,
-    "name": "Frontline house",
-    "phone_number": "(+91) 983 893 3937",
+    "accuracy": 160,
     "address": "29, side layout, cohen 09",
+    "language": "Tagalog",
+    "location": {
+        "lat": -89.383494,
+        "lng": 103.427362
+    },
+    "name": "Purokyot House Of Collab",
+    "phone_number": "(+91) 983 893 3937",
     "types": [
         "shoe park",
         "shop"
     ],
-    "website": "http://google.com",
-    "language": "French-IN"
+    "website": "http://youtube.com"
 }
 HTTP/1.1 200 OK
-Date: Tue, 06 Jan 2026 07:41:23 GMT
+Date: Sun, 25 Jan 2026 01:46:03 GMT
 Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
 Access-Control-Max-Age: 3600
@@ -40,10 +41,136 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "c47b3bb455a25d4e361aca694babc741",
+    "place_id": "0272c5c9138f4041c0242b5b681100c2",
     "scope": "APP",
-    "reference": "3cac94b080aeb0907a4cb7907c091e553cac94b080aeb0907a4cb7907c091e55",
-    "id": "3cac94b080aeb0907a4cb7907c091e55"
+    "reference": "1e065be98b51d28cf621b51b199d5d1a1e065be98b51d28cf621b51b199d5d1a",
+    "id": "1e065be98b51d28cf621b51b199d5d1a"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=0272c5c9138f4041c0242b5b681100c2
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=0272c5c9138f4041c0242b5b681100c2
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Sun, 25 Jan 2026 01:46:04 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 267
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-89.383494",
+        "longitude": "103.427362"
+    },
+    "accuracy": "160",
+    "name": "Purokyot House Of Collab",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://youtube.com",
+    "language": "Tagalog"
+}
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "accuracy": 160,
+    "address": "29, side layout, cohen 09",
+    "language": "Chavacano",
+    "location": {
+        "lat": -89.383494,
+        "lng": 120.427362
+    },
+    "name": "Test@Place#123!",
+    "phone_number": "(+91) 983 893 3937",
+    "types": [
+        "shoe park",
+        "shop"
+    ],
+    "website": "http://youtube.com"
+}
+HTTP/1.1 200 OK
+Date: Sun, 25 Jan 2026 01:46:07 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "376f7504db66fd5307b4e4d8a029750c",
+    "scope": "APP",
+    "reference": "483a0209c7ac42d60c8ac9196a34e6fa483a0209c7ac42d60c8ac9196a34e6fa",
+    "id": "483a0209c7ac42d60c8ac9196a34e6fa"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=376f7504db66fd5307b4e4d8a029750c
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=376f7504db66fd5307b4e4d8a029750c
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Sun, 25 Jan 2026 01:46:07 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 260
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-89.383494",
+        "longitude": "120.427362"
+    },
+    "accuracy": "160",
+    "name": "Test@Place#123!",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://youtube.com",
+    "language": "Chavacano"
 }
 Request method:	DELETE
 Request URI:	https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
@@ -58,11 +185,12 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "place_id": "c47b3bb455a25d4e361aca694babc741"
+    "place_id": "376f7504db66fd5307b4e4d8a029750c"
 }
 HTTP/1.1 200 OK
-Date: Tue, 06 Jan 2026 07:41:23 GMT
+Date: Sun, 25 Jan 2026 01:46:09 GMT
 Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
 Access-Control-Max-Age: 3600

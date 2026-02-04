@@ -20,7 +20,6 @@ import static io.restassured.RestAssured.given;
 
 public class AddBookTestTwo {
 
-
     RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("http://216.10.245.166").setContentType(ContentType.JSON).build();
     ResponseSpecification responseSpecification =  new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
     ArrayList<String> testData ;
@@ -28,7 +27,7 @@ public class AddBookTestTwo {
     @Test(priority = 1)
     public void addBookTest() throws IOException {
 
-        testData =  ExcelUtility.getDataFromExcel("/src/main/resources/test_data/BookTestData.xlsx","Book","TC Name","Add Book");
+        testData =  ExcelUtility.getDataFromExcel("BookTestData.xlsx","Book","TC Name","Add Book");
         HashMap<String,Object> body =  AddBodyUtility.getAddBookBody(testData);
         RequestSpecification request = given().log().all().spec(requestSpecification).body(body);
 
@@ -40,6 +39,7 @@ public class AddBookTestTwo {
 
         Assert.assertEquals(msg,"successfully added");
         Assert.assertEquals(ID,testData.get(2)+testData.get(3));
+
 
 
     }

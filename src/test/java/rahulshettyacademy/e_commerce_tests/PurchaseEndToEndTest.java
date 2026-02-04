@@ -1,4 +1,4 @@
-package rahulshettyacademy.ecommerce_end_to_end_demo;
+package rahulshettyacademy.e_commerce_tests;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -8,6 +8,12 @@ import io.restassured.specification.ResponseSpecification;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import rahulshettyacademy.pojo_classes.ecommerce_apis.request.LoginRequest;
+import rahulshettyacademy.pojo_classes.ecommerce_apis.request.Orders;
+import rahulshettyacademy.pojo_classes.ecommerce_apis.request.PlaceOrderRequest;
+import rahulshettyacademy.pojo_classes.ecommerce_apis.response.LoginResponse;
+import rahulshettyacademy.pojo_classes.ecommerce_apis.response.GetOrderDetailsResponse;
+import rahulshettyacademy.pojo_classes.ecommerce_apis.response.PlaceOrderResponse;
 import rahulshettyacademy.utilities.JSONUtility;
 
 import java.io.File;
@@ -84,7 +90,7 @@ public class PurchaseEndToEndTest {
 
       Assert.assertEquals(message,"Product Added Successfully");
 
-      //productId = 6954e731c941646b7a72f8b2
+      //productId = 6981af03c941646b7acfe2d9
 
     }
 
@@ -102,7 +108,6 @@ public class PurchaseEndToEndTest {
 
         RequestSpecification request = given().log().all().spec(requestSpecification).body(placeOrderRequest);
         PlaceOrderResponse response = request.when().log().all().post("/api/ecom/order/create-order").as(PlaceOrderResponse.class);
-
 
 
         List<String> orderIds = response.getOrders();
@@ -124,7 +129,7 @@ public class PurchaseEndToEndTest {
         RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addHeader("Authorization",token)
                 .addQueryParam("id",orderId).build();
         RequestSpecification request =given().spec(requestSpecification);
-        OrderDetailsResponse response = request.when().get("/api/ecom/order/get-orders-details").as(OrderDetailsResponse.class);
+        GetOrderDetailsResponse response = request.when().get("/api/ecom/order/get-orders-details").as(GetOrderDetailsResponse.class);
 
         Assert.assertEquals(response.getMessage(),"Orders fetched for customer Successfully");
 

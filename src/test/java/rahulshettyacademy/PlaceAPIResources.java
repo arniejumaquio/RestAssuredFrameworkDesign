@@ -1,6 +1,6 @@
 package rahulshettyacademy;
 
-public enum APIResources {
+public enum PlaceAPIResources {
 
     AddPlaceAPI("maps/api/place/add/json"),
     UpdatePlaceAPI("maps/api/place/update/json"),
@@ -9,13 +9,14 @@ public enum APIResources {
 
     private String resource;
 
-    APIResources(String resource){
+    PlaceAPIResources(String resource){
         this.resource = resource;
     }
 
     public String getResource(){
         return this.resource;
     }
+
 
 
 

@@ -1,9 +1,20 @@
-package rahulshettyacademy.ecommerce_end_to_end_demo;
+package rahulshettyacademy.pojo_classes.ecommerce_apis.request;
 
 public class LoginRequest {
 
     private String userEmail;
     private String userPassword;
+
+    public LoginRequest(){
+
+    }
+
+
+    public LoginRequest(String userEmail, String userPassword){
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+    }
+
 
     public String getUserEmail() {
         return userEmail;

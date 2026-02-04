@@ -2,6 +2,9 @@ package rahulshettyacademy.pojo_classes_demo.deserialization;
 
 public class API {
 
+    private String courseTitle;
+    private String price;
+
     public String getCourseTitle() {
         return courseTitle;
     }
@@ -18,8 +21,7 @@ public class API {
         this.price = price;
     }
 
-    private String courseTitle;
-    private String price;
+
 
 
 }

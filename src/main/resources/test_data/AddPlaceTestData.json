@@ -1,0 +1,18 @@
+[
+
+  {
+    "location": {
+      "lat": -38.383494,
+      "lng": 33.427362
+    },
+    "accuracy": 50,
+    "name": "Test Place",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Test Address",
+    "types": ["test"],
+    "website": "http://test.com",
+    "language": "en-US"
+  }
+
+
+]

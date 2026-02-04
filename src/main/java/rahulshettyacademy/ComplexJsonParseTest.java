@@ -30,17 +30,54 @@ public class ComplexJsonParseTest {
         }
 
 
-        //print copies sold by RPA
-        for(int i =0; i < 3; i++){
+        System.out.println("--------");
+        //print title,copies,sold of last courses in the array
+        for(int i = 0; i < coursesCount; i++){
 
-           String courseTitle = jsonPath.getString("courses["+i+"].title");
-           if(courseTitle.equalsIgnoreCase("Cypress")){
-               int copies =jsonPath.getInt("courses["+i+"].copies");
-               System.out.println("RPA copies "+copies);
-               break;
+            if(i == coursesCount-1){
+
+                //last index
+               String title = jsonPath.getString("courses["+i+"].title");
+               int price = jsonPath.getInt("courses["+i+"].price");
+               int copies = jsonPath.getInt("courses["+i+"].copies");
+
+                System.out.println("Title = "+title);
+                System.out.println("Price = "+price);
+                System.out.println("Copies = "+copies);
+
+
+            }
+
+        }
+
+
+        System.out.println("--------");
+        //print title,copies,sold of first courses in the array
+        for(int i = 0; i < coursesCount; i++){
+
+           if(i == 0){
+
+               System.out.println(jsonPath.getString("courses["+i+"].title"));
+               System.out.println(jsonPath.getInt("courses["+i+"].price"));
+               System.out.println(jsonPath.getInt("courses["+i+"].copies"));
+
            }
 
         }
+
+
+
+        //print copies sold by RPA
+        System.out.println("--------");
+        for(int i = 0; i < coursesCount; i++){
+
+            if( jsonPath.getString("courses["+i+"].title").equalsIgnoreCase("RPA") ){
+                Assert.assertTrue(jsonPath.getInt("courses["+i+"].copies") == 10);
+            }
+
+
+        }
+
 
         //compare purchase amount to price * copies
         int sum = 0;

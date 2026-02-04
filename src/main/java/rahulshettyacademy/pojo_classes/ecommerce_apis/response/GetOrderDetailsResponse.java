@@ -1,8 +1,10 @@
-package rahulshettyacademy.ecommerce_end_to_end_demo;
+package rahulshettyacademy.pojo_classes.ecommerce_apis.response;
 
-public class OrderDetailsResponse {
+import rahulshettyacademy.pojo_classes.ecommerce_apis.request.Data;
 
-    private  Data data;
+public class GetOrderDetailsResponse {
+
+    private Data data;
     private String message;
 
     public Data getData() {

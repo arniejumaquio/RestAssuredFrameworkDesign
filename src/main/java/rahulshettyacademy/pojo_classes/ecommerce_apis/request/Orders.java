@@ -1,9 +1,18 @@
-package rahulshettyacademy.ecommerce_end_to_end_demo;
+package rahulshettyacademy.pojo_classes.ecommerce_apis.request;
 
 public class Orders {
 
     private String country;
     private String productOrderedId;
+
+    public Orders(){
+
+    }
+
+    public Orders(String country,String productOrderedId){
+        this.country = country;
+        this.productOrderedId = productOrderedId;
+    }
 
     public String getCountry() {
         return country;

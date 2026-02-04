@@ -11,12 +11,9 @@ import rahulshettyacademy.pojo_classes.place_apis.request.DeletePlaceRequest;
 import rahulshettyacademy.pojo_classes.place_apis.request.Location;
 import rahulshettyacademy.pojo_classes.place_apis.request.UpdatePlaceRequest;
 import rahulshettyacademy.utilities.JSONUtility;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -31,22 +28,7 @@ public class AddPlaceTest {
 
         //Add Place
 
-        AddPlaceRequest addPlaceRequest = new AddPlaceRequest();
-        Location location = new Location();
-        location.setLat(-38.383494);
-        location.setLng( 33.427362);
-        addPlaceRequest.setLocation(location);
-        addPlaceRequest.setAccuracy(50);
-        addPlaceRequest.setName("Frontline house");
-        addPlaceRequest.setPhone_number("(+91) 983 893 3937");
-        addPlaceRequest.setAddress("29, side layout, cohen 09");
-        List<String> types = new ArrayList<String>();
-        types.add("shoe park");
-        types.add("shop");
-        addPlaceRequest.setTypes(types);
-        addPlaceRequest.setWebsite("http://google.com");
-        addPlaceRequest.setLanguage("French-IN");
-
+        AddPlaceRequest addPlaceRequest = new AddPlaceRequest(new Location(-38.383494,33.427362),50,"Frontline house","(+91) 983 893 3937","29, side layout, cohen 09", Arrays.asList("shoe park","shop"),"http://google.com","French-IN" );
 
        String response = given().log().all().spec(requestSpecification).body(addPlaceRequest).
        when().post("maps/api/place/add/json").
@@ -78,7 +60,7 @@ public class AddPlaceTest {
 
 
         String actualAddress =  JSONUtility.getJsonValueStringFromPath(response,"address");
-        Assert.assertEquals(address,actualAddress);
+        Assert.assertEquals(actualAddress,address);
 
 
        //Delete Place

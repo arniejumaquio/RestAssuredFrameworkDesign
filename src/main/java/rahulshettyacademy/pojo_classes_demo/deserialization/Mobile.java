@@ -2,6 +2,9 @@ package rahulshettyacademy.pojo_classes_demo.deserialization;
 
 public class Mobile {
 
+    private String courseTitle;
+    private String price;
+
     public String getCourseTitle() {
         return courseTitle;
     }
@@ -18,6 +21,5 @@ public class Mobile {
         this.price = price;
     }
 
-    private String courseTitle;
-    private String price;
+
 }

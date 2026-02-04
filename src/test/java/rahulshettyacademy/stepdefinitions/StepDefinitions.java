@@ -8,7 +8,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 
-import rahulshettyacademy.APIResources;
+import rahulshettyacademy.PlaceAPIResources;
 import rahulshettyacademy.builder.TestDataBuilder;
 import rahulshettyacademy.pojo_classes.place_apis.response.GetPlaceResponse;
 import rahulshettyacademy.utilities.JSONUtility;
@@ -57,8 +57,8 @@ public class StepDefinitions extends StepBase {
     @When("user calls {string} with {string}  request")
     public void user_calls_with_request(String resource,String httpMethod) {
 
-          APIResources apiResources = APIResources.valueOf(resource);
-          String resourceUrl = apiResources.getResource();
+          PlaceAPIResources placeApiResources = PlaceAPIResources.valueOf(resource);
+          String resourceUrl = placeApiResources.getResource();
 
           if(httpMethod.equalsIgnoreCase("post")) {
               response = request.when().post(resourceUrl).then().extract().response();

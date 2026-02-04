@@ -1,7 +1,10 @@
-package rahulshettyacademy.ecommerce_end_to_end_demo;
+package rahulshettyacademy.pojo_classes.ecommerce_apis.request;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Data {
 
+    @JsonProperty("_id")
     private String _id;
     private String orderById;
     private String orderBy;
@@ -11,7 +14,8 @@ public class Data {
     private String productDescription;
     private String productImage;
     private String orderPrice;
-    private String __v;
+    @JsonProperty("__v")
+    private Integer __v;
 
     public String get_id() {
         return _id;
@@ -85,11 +89,11 @@ public class Data {
         this.orderPrice = orderPrice;
     }
 
-    public String get__v() {
+    public Integer get__v() {
         return __v;
     }
 
-    public void set__v(String __v) {
+    public void set__v(Integer __v) {
         this.__v = __v;
     }
 
