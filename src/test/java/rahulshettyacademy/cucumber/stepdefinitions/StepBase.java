@@ -7,7 +7,6 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-
 import java.io.*;
 import java.util.Properties;
 
@@ -25,15 +24,13 @@ public class StepBase {
                     .addFilter(ResponseLoggingFilter.logResponseTo(logStream)).build();
         }
 
-         return requestSpecification;
+        return requestSpecification;
 
     }
-
 
     public ResponseSpecification responseSpecification(){
 
         responseSpecification = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
-
         return responseSpecification;
     }
 
@@ -46,17 +43,12 @@ public class StepBase {
         String value =  config.getProperty(key);
         return value;
 
-
     }
 
     private Properties getConfig(){
 
         Properties config = new Properties();
-
         return config;
-
     }
-
-
 
 }

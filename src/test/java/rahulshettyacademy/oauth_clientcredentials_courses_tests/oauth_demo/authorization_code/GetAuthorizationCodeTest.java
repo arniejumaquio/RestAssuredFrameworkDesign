@@ -21,7 +21,6 @@ public class GetAuthorizationCodeTest {
 
     RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("https://accounts.google.com").build();
 
-
     @Test
     public void getAuthorizationCodeTest(){
 
@@ -39,7 +38,6 @@ public class GetAuthorizationCodeTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-
         String url = "https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email&auth_url=https://accounts.google.com/o/oauth2/v2/auth&client_id=692183103107-p0m7ent2hk7suguv4vq22hjcfhcr43pj.apps.googleusercontent.com&response_type=code&redirect_uri=https://rahulshettyacademy.com/getCourse.php";
         driver.get(url);
 
@@ -49,9 +47,6 @@ public class GetAuthorizationCodeTest {
 
         WebElement nextButton = driver.findElement(By.xpath("//span[text()='Next']"));
         nextButton.click();
-
-
-
 
 
     }

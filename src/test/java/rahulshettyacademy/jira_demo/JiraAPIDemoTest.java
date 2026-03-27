@@ -7,9 +7,6 @@ import rahulshettyacademy.utilities.AddBodyUtility;
 import rahulshettyacademy.utilities.JSONUtility;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-
 import static io.restassured.RestAssured.given;
 
 public class JiraAPIDemoTest {

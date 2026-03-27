@@ -1,11 +1,10 @@
-package rahulshettyacademy.oauth_demo;
+package rahulshettyacademy.oauth_clientcredentials_courses_tests.oauth_demo;
 
 import io.restassured.RestAssured;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import rahulshettyacademy.utilities.AssertUtility;
 import rahulshettyacademy.utilities.JSONUtility;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,7 +53,6 @@ public class GetCourseDetailsTest {
         Assert.assertEquals(actualServices,"projectSupport");
         Assert.assertEquals(actualExpertise,"Automation");
         Assert.assertEquals(actualLinkedin,"https://www.linkedin.com/in/rahul-shetty-trainer/");
-
 
         int webAutomationSize = JSONUtility.getJsonValueIntFromPath(response,"courses.webAutomation.size()");
 

@@ -54,7 +54,7 @@ public class AddBookTest {
     public void getBookByAuthorNameTest(String name,String isbn,String aisle,String author){
 
         RequestSpecification request = given().log().all().spec(requestSpecification).queryParam("AuthorName",author);
-              Response response =  request.when().get("/Library/GetBook.php").
+        Response response =  request.when().get("/Library/GetBook.php").
                 then().log().all().spec(responseSpecification).extract().response();
 
        int responseArraySize = JSONUtility.getJsonValueIntFromPath(response.asString(),"size()");
@@ -79,7 +79,13 @@ public class AddBookTest {
     @DataProvider(name="Books Data Set")
     public Object[][] getBookData(){
 
-       return new Object[][] {{"Learn Selenium With Java","ISBN","1087654327","Harry Roque",},{"Learn Appium With Java","ISBN","1087654328","Harry Roque",},{"Learn RestAssured With Java","ISBN","1087654329","Harry Roque",}};
+       return new Object[][] {
+
+               {"Learn Selenium With Java","ISBN","1087654327","Harry Roque"},
+               {"Learn Appium With Java","ISBN","1087654328","Harry Roque"},
+               {"Learn RestAssured With Java","ISBN","1087654329","Harry Roque"}
+
+       };
 
     }
 

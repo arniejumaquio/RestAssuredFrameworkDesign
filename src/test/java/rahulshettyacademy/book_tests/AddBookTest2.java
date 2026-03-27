@@ -1,4 +1,4 @@
-package rahulshettyacademy;
+package rahulshettyacademy.book_tests;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;

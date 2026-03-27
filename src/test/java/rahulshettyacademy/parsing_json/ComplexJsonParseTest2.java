@@ -21,14 +21,13 @@ public class ComplexJsonParseTest2 {
     ResponseSpecification responseSpecification = new ResponseSpecBuilder().expectContentType(ContentType.JSON)
             .expectStatusCode(200).build();
 
-
     @Test
     public void complexJsonParseTest2(){
 
         HashMap<String,Object> queryParams = new HashMap<String, Object>();
         queryParams.put("AuthorName","rahulshetty");
 
-       Response response = given().spec(requestSpecification).queryParams(queryParams).
+       Response response = given().log().all().spec(requestSpecification).queryParams(queryParams).
          when().get("Library/GetBook.php").
          then().spec(responseSpecification).extract().response();
 

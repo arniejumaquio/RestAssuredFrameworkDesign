@@ -1,10 +1,12 @@
-package rahulshettyacademy.pojo_classes_demo.deserialization;
+package rahulshettyacademy.oauth_clientcredentials_courses_tests;
 
 import io.restassured.RestAssured;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import rahulshettyacademy.pojo_classes.course_details_apis.API;
+import rahulshettyacademy.pojo_classes.course_details_apis.CourseDetails;
+import rahulshettyacademy.pojo_classes.course_details_apis.WebAutomation;
 import rahulshettyacademy.utilities.JSONUtility;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,7 @@ import static io.restassured.RestAssured.given;
 public class GetCourseDetailsTest2 {
 
     public  String accessToken;
+
     @Test
     public void getAccessToken(){
 
@@ -24,6 +27,7 @@ public class GetCourseDetailsTest2 {
         formParams.put("client_secret","erZOWM9g3UtwNRj340YYaK_W");
         formParams.put("grant_type","client_credentials");
         formParams.put("scope","trust");
+
 
         String response = given().formParams(formParams).
                 when().post("/oauthapi/oauth2/resourceOwner/token").
