@@ -1,4 +1,4 @@
-package rahulshettyacademy.stepdefinitions;
+package rahulshettyacademy.cucumber.stepdefinitions;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -8,12 +8,14 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import java.io.*;
+import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class StepBase {
 
-    protected static RequestSpecification requestSpecification;
-    ResponseSpecification responseSpecification;
+    protected  RequestSpecification requestSpecification;
+    protected  ResponseSpecification responseSpecification;
 
     public RequestSpecification requestSpecification() throws IOException {
 
@@ -44,6 +46,7 @@ public class StepBase {
         return value;
 
     }
+
 
     private Properties getConfig(){
 

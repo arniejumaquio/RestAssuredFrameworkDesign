@@ -9,13 +9,12 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import rahulshettyacademy.utilities.AddBodyUtility;
 import rahulshettyacademy.utilities.JSONUtility;
-
 import static io.restassured.RestAssured.given;
 
 public class PlaceTest {
 
-    RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com/")
-            .setContentType(ContentType.JSON).addQueryParam("key","qaclick123").build();
+    RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com/").setContentType(ContentType.JSON)
+            .addQueryParam("key","qaclick123").build();
     Response response;
     String placeId;
     String newAddress;
@@ -23,13 +22,17 @@ public class PlaceTest {
     @Test(dataProvider = "getAddPlaceData",priority = 1)
     public void addPlaceTest(String lat,String lng,String accuracy,String name,String phoneNumber,String address,String website,String language){
 
-
         response =  given().log().all().spec(requestSpecification).body(AddBodyUtility.getAddPlaceBody(lat,lng,accuracy,name,phoneNumber,address,website,language)).
         when().post("maps/api/place/add/json").
         then().log().all().extract().response();
 
         placeId = JSONUtility.getJsonValueStringFromPath(response.asString(),"place_id");
         Assert.assertTrue(response.getStatusCode() == 200);
+        Assert.assertEquals(JSONUtility.getJsonValueFromPath(response.asString(),"status"),"OK");
+        Assert.assertNotNull(placeId);
+        Assert.assertEquals(JSONUtility.getJsonValueFromPath(response.asString(),"scope"),"APP");
+        Assert.assertNotNull(JSONUtility.getJsonValueFromPath(response.asString(),"reference"));
+        Assert.assertNotNull(JSONUtility.getJsonValueFromPath(response.asString(),"id"));
 
     }
 
@@ -49,6 +52,7 @@ public class PlaceTest {
         String actualWebsite = JSONUtility.getJsonValueStringFromPath(response.asString(),"website");
         String actualLanguage = JSONUtility.getJsonValueStringFromPath(response.asString(),"language");
 
+        Assert.assertEquals(response.getStatusCode() , 200);
         Assert.assertEquals(actualLatitude,lat);
         Assert.assertEquals(actualLongitude,lng);
         Assert.assertEquals(actualAccuracy,accuracy);
@@ -57,7 +61,7 @@ public class PlaceTest {
         Assert.assertEquals(actualAddress,address);
         Assert.assertEquals(actualWebsite,website);
         Assert.assertEquals(actualLanguage,language);
-        Assert.assertTrue(response.getStatusCode() == 200);
+
 
     }
 
@@ -71,9 +75,10 @@ public class PlaceTest {
         when().put("maps/api/place/update/json").
         then().log().all().extract().response();
 
+        Assert.assertTrue(response.getStatusCode() == 200);
         String actualMsg = JSONUtility.getJsonValueStringFromPath(response.asString(),"msg");
         Assert.assertEquals(actualMsg,expectedMsg);
-        Assert.assertTrue(response.getStatusCode() == 200);
+
 
     }
 
@@ -93,6 +98,7 @@ public class PlaceTest {
         String actualWebsite = JSONUtility.getJsonValueStringFromPath(response.asString(),"website");
         String actualLanguage = JSONUtility.getJsonValueStringFromPath(response.asString(),"language");
 
+        Assert.assertTrue(response.getStatusCode() == 200);
         Assert.assertEquals(actualLatitude,lat);
         Assert.assertEquals(actualLongitude,lng);
         Assert.assertEquals(actualAccuracy,accuracy);
@@ -101,7 +107,6 @@ public class PlaceTest {
         Assert.assertEquals(actualAddress,newAddress);
         Assert.assertEquals(actualWebsite,website);
         Assert.assertEquals(actualLanguage,language);
-        Assert.assertTrue(response.getStatusCode() == 200);
 
     }
 
@@ -110,41 +115,35 @@ public class PlaceTest {
 
           String actualStatus = "OK";
 
-          response =  given().log().all().spec(requestSpecification).body(AddBodyUtility.getDeletePlaceBody(placeId)).
+           response =  given().log().all().spec(requestSpecification).body(AddBodyUtility.getDeletePlaceBody(placeId)).
            when().delete("maps/api/place/delete/json").
            then().log().all().extract().response();
 
+          Assert.assertTrue(response.getStatusCode() == 200);
           String expectedStatus = JSONUtility.getJsonValueStringFromPath(response.asString(),"status");
           Assert.assertEquals(actualStatus,expectedStatus);
-        Assert.assertTrue(response.getStatusCode() == 200);
+
 
     }
 
     @Test(priority = 6)
     public void getPlaceTest3(){
 
-        String actualMsg = "Get operation failed, looks like place_id  doesn't exists";
+        String expectedMsg = "Get operation failed, looks like place_id  doesn't exists";
 
         response = given().log().all().queryParam("place_id",placeId).spec(requestSpecification).
                 when().get("maps/api/place/get/json").
                 then().log().all().extract().response();
 
-        String expectedMsg = JSONUtility.getJsonValueStringFromPath(response.asString(),"msg");
+        Assert.assertTrue(response.getStatusCode() == 404);
+        String actualMsg = JSONUtility.getJsonValueStringFromPath(response.asString(),"msg");
         Assert.assertEquals(actualMsg,expectedMsg);
-        Assert.assertTrue(response.getStatusCode() == 404,"Actual status code "+response.getStatusCode());
-
 
     }
-
-
 
     @DataProvider
     public Object[][] getAddPlaceData(){
-
-
-        return  new Object[][]{ {"-38.383494","33.427362","50","House Of Collab","(+91) 123 456 7890","Secret","http://test.com","en-AED"}};
+        return  new Object[][]{ {"-38.383494","33.427362","50","House Of Collab","(+91) 123 456 7890","Secret","http://test.com","en-AED"} };
     }
-
-
 
 }

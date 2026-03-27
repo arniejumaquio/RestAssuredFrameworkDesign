@@ -1,16 +1,11 @@
 package rahulshettyacademy.oauth_clientcredentials_courses_tests.oauth_demo.authorization_code;
 
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import rahulshettyacademy.cucumber.stepdefinitions.base.place_apis.StepBase;
-import rahulshettyacademy.pojo_classes.course_details_apis.CourseDetails;
 import rahulshettyacademy.pojo_classes.token_apis.OauthResponse;
 
 import java.util.HashMap;
@@ -19,7 +14,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class GetCourseDetailsUsingAccessTokenTest extends StepBase {
+public class GetCourseDetailsResponseUsingAccessTokenTest extends StepBase {
 
     private RequestSpecification request;
     private OauthResponse oauthResponse;
@@ -38,7 +33,6 @@ public class GetCourseDetailsUsingAccessTokenTest extends StepBase {
         request = given().log().all().spec(requestSpecification).formParams(formParams);
         oauthResponse = request.when().post("/oauthapi/oauth2/resourceOwner/token").then().log().all().spec(responseSpecification).extract().as(OauthResponse.class);
         accessToken = oauthResponse.getAccess_token();
-        System.out.println(accessToken);
 
     }
 
@@ -65,6 +59,7 @@ public class GetCourseDetailsUsingAccessTokenTest extends StepBase {
                    Assert.assertTrue(false);
                }
             }
+
             if(courseWebAutomationMap.get("courseTitle").equals("Cypress")){
                 if(courseWebAutomationMap.get("price").equals("40")){
                     Assert.assertTrue(true);
@@ -72,6 +67,7 @@ public class GetCourseDetailsUsingAccessTokenTest extends StepBase {
                     Assert.assertTrue(false);
                 }
             }
+
             if(courseWebAutomationMap.get("courseTitle").equals("Protractor")){
 
                 if(courseWebAutomationMap.get("price").equals("40")){

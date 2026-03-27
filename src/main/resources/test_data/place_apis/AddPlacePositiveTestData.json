@@ -1,0 +1,233 @@
+[
+
+  {
+    "testCase": "TC1 - Valid request with all required fields",
+    "location": {
+      "lat": -38.383494,
+      "lng": 33.427362
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC2 - Valid request with different lat/lng",
+    "location": {
+      "lat": 48.8566,
+      "lng": 2.3522
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC3 - Valid request with zero lat/lng ",
+    "location": {
+      "lat": 0,
+      "lng": 0
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC4 - Valid request with negative lat/lng ",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC5 - Valid request with minimum(1) accuracy",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 1,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC5 - Valid request with maximum(99999) accuracy",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 99999,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC6 - Valid request with maximum(Cristo Redentor Statue On Top Of Corcovado Mountain In Rio De Janeiro Brazil) name",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 99999,
+    "name": "Cristo Redentor Statue On Top Of Corcovado Mountain In Rio De Janeiro Brazil",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+
+  {
+
+    "testCase": "TC7 - Valid request with different phone number",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 99999,
+    "name": "Cristo Redentor Statue On Top Of Corcovado Mountain In Rio De Janeiro Brazil",
+    "phone_number": "082 234 5678",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+
+  {
+
+    "testCase": "TC8 - Valid request with special chars in address",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 99999,
+    "name": "Cristo Redentor Statue On Top Of Corcovado Mountain In Rio De Janeiro Brazil",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "`~!#@$%^&*()_+-=[]{};':,.<>/? Test Address",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC9 - Valid request with single element in types",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 99999,
+    "name": "Cristo Redentor Statue On Top Of Corcovado Mountain In Rio De Janeiro Brazil",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Test Address",
+    "types": [
+      "shoe park"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC10 - Valid request with HTTPS website",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 99999,
+    "name": "Cristo Redentor Statue On Top Of Corcovado Mountain In Rio De Janeiro Brazil",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Test Address",
+    "types": [
+      "shoe park"
+    ],
+    "website": "https://wwww.google.com",
+    "language": "en-AED"
+  },
+
+  {
+
+    "testCase": "TC11 - Valid request with different language",
+    "location": {
+      "lat": -33.8688,
+      "lng": -122.4194
+    },
+    "accuracy": 99999,
+    "name": "Cristo Redentor Statue On Top Of Corcovado Mountain In Rio De Janeiro Brazil",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Test Address",
+    "types": [
+      "shoe park"
+    ],
+    "website": "https://wwww.google.com",
+    "language": "en-USD"
+  }
+
+
+
+
+
+]

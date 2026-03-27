@@ -1,4 +1,4 @@
-package rahulshettyacademy.stepdefinitions;
+package rahulshettyacademy.cucumber.stepdefinitions;
 
 import io.cucumber.java.Before;
 

@@ -1,7 +1,13 @@
 [
 
   {
-    "country":"Japan"
+    "orders": [
+      {
+        "country": "Firipin",
+        "productOrderedId": "6960eae1c941646b7a8b3ed3"
+      }
+    ]
   }
+
 
 ]

@@ -1,0 +1,57 @@
+[
+  {
+    "test": {
+      "tcID": "TC1",
+      "tcDescription": "Verify invalid request with missing xatlassian token",
+      "statusCode": 200,
+      "bugId": 1564639,
+      "file": "src/main/resources/attachments/jira_apis/jira_bug_attachment.png"
+    },
+    "headers": {
+      "X-Atlassian-Token":  "nocheck",
+      "Authorization": "Basic YXJuaWUuanVtYXF1aW9AcGF5bWF5YS5jb206QVRBVFQzeEZmR0YwU1NVbnhOeXBPVWxOX0duSnZsRWRPNGFXeHVJeUItY2VDZ1JPUFk3d1VlNGdJLXNWRkR2bVhVSV90UFd4MHdjcUlDeEF2OHowLXM5d1hCQ2FVTjZSTGlXbHRfeVh6U2hLUllYYjhOMnk2bHJmWnFYVDFTckYzcG1tYUFsQnNuTFBiXzd4UjNIV2t0bWV2UU5YMkdZUGMydlZDcDNTV2JIMmp0bVpMQmZFNm93PTg0MDlFNUIy"
+    }
+  },
+
+  {
+    "test": {
+      "testCase": "TC2 Verify invalid request with missing authorization token",
+      "statusCode": 404,
+      "bugId": 1564639,
+      "file": "src/main/resources/attachments/jira_apis/jira_bug_attachment.png"
+    },
+    "headers": {
+      "X-Atlassian-Token": "nocheck"
+    }
+  },
+
+  {
+    "test": {
+      "testCase": "TC3 Verify invalid request with empty xatlassian token",
+      "statusCode": 404,
+      "bugId": 1564639,
+      "file": "src/main/resources/attachments/jira_apis/jira_bug_attachment.png"
+    },
+    "headers": {
+      "X-Atlassian-Token": "",
+      "Authorization": "Basic YXJuaWUuanVtYXF1aW9AcGF5bWF5YS5jb206QVRBVFQzeEZmR0YwU1NVbnhOeXBPVWxOX0duSnZsRWRPNGFXeHVJeUItY2VDZ1JPUFk3d1VlNGdJLXNWRkR2bVhVSV90UFd4MHdjcUlDeEF2OHowLXM5d1hCQ2FVTjZSTGlXbHRfeVh6U2hLUllYYjhOMnk2bHJmWnFYVDFTckYzcG1tYUFsQnNuTFBiXzd4UjNIV2t0bWV2UU5YMkdZUGMydlZDcDNTV2JIMmp0bVpMQmZFNm93PTg0MDlFNUIy"
+    }
+  },
+
+  {
+    "test": {
+      "testCase": "TC4 Verify invalid request with empty authorization token",
+      "statusCode": 404,
+      "bugId": 1564639,
+      "file": "src/main/resources/attachments/jira_apis/jira_bug_attachment.png"
+    },
+    "headers": {
+      "X-Atlassian-Token": "nocheck",
+      "Authorization": ""
+    }
+  }
+
+
+
+
+    ]

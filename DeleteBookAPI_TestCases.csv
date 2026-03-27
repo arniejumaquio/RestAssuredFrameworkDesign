@@ -1,0 +1,21 @@
+#,Category,Test Case,Payload,Expected Status,Expected Response
+1,Positive,Delete an existing book,"{""ID"": ""<valid_existing_id>""}",200,"msg: book is successfully deleted"
+2,Positive,Verify book no longer retrievable after delete,GET /GetBook.php?ID=<deleted_id>,404,Book not found message
+3,Negative - Invalid ID,Delete already-deleted book (idempotency),"{""ID"": ""<already_deleted_id>""}",404,"msg: Delete Book operation failed, looks like the book doesnt exists"
+4,Negative - Invalid ID,Delete with non-existent ID,"{""ID"": ""FAKEID99999""}",404,Book doesn't exist message
+5,Negative - Invalid ID,Empty ID value,"{""ID"": """"}",400/404,Error message
+6,Negative - Invalid ID,Missing ID field entirely,{},400,Error/validation message
+7,Negative - Invalid ID,Null ID value,"{""ID"": null}",400,Error message
+8,Negative - Malformed,Wrong key name,"{""BookId"": ""validId""}",400,Error message
+9,Negative - Malformed,Empty request body,(empty),400,Error message
+10,Negative - Malformed,Invalid JSON format,{ID: validId},400,Parse error
+11,Security,SQL injection in ID,"{""ID"": ""1' OR '1'='1""}",400/404,Should not return success
+12,Security,XSS payload in ID,"{""ID"": ""<script>alert(1)</script>""}",400/404,Sanitized response
+13,Boundary,Very long ID string,"{""ID"": ""A...x10000""}",400/413,Error message
+14,Boundary,Special characters in ID,"{""ID"": ""!@#$%^&*()""}",400/404,Error message
+15,Boundary,Numeric ID instead of string,"{""ID"": 12345}",Depends,Verify behavior
+16,Headers,Wrong Content-Type (form-data),Send as application/x-www-form-urlencoded,400,Error or handled gracefully
+17,Headers,No Content-Type header,Omit Content-Type header,Error,Error or handled gracefully
+18,Edge/Regression,Delete then re-add then delete same book,Re-add with same isbn+aisle then delete again,200,Both deletes return 200
+19,Edge/Regression,Concurrent delete of same ID,Two simultaneous delete requests,One 200 / one 404,Only one should succeed
+20,Edge/Regression,Case sensitivity of ID,"{""ID"": ""testisbn030320261"" vs ""TestISBN030320261""}",Verify,Check if case-sensitive

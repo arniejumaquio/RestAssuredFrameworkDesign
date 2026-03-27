@@ -1,0 +1,586 @@
+[
+
+  {
+    "testCaseId": "TC1",
+    "testCaseDescription": "Verify add book api with missing name",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC2",
+    "testCaseDescription": "Verify add book api with missing isbn",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "0123456789",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "isbn is required"
+    }
+
+  },
+
+
+  {
+    "testCaseId": "TC3",
+    "testCaseDescription": "Verify add book api with missing aisle",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "0123456789",
+      "isbn": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "aisle is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC4",
+    "testCaseDescription": "Verify add book api with missing author",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "isbn": "ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "author is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC5A",
+    "testCaseDescription": "Verify add book api with  empty name",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "",
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC5B",
+    "testCaseDescription": "Verify add book api with  null name",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": null,
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+
+  {
+    "testCaseId": "TC6A",
+    "testCaseDescription": "Verify add book api with  empty isbn",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "isbn is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC6B",
+    "testCaseDescription": "Verify add book api with  null isbn",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": null,
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "isbn is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC7A",
+    "testCaseDescription": "Verify add book api with  empty aisle",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "Test ISBN",
+      "aisle": "",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "aisle is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC7B",
+    "testCaseDescription": "Verify add book api with  null aisle",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "Test ISBN",
+      "aisle": null,
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "aisle is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC8A",
+    "testCaseDescription": "Verify add book api with  empty author",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "Test ISBN",
+      "aisle": "8123871232",
+      "author": ""
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "author is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC8B",
+    "testCaseDescription": "Verify add book api with  null author",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "Test ISBN",
+      "aisle": "8123871232",
+      "author": null
+
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "author is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC9A",
+    "testCaseDescription": "Verify add book api with different invalid name(whitespace)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": "ISBN",
+      "name": "            "
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC9B",
+    "testCaseDescription": "Verify add book api with different invalid name(numeric)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": "ISBN",
+      "name": 1234567890
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC9C",
+    "testCaseDescription": "Verify add book api with different invalid name(boolean)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": "ISBN",
+      "name": true
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC10A",
+    "testCaseDescription": "Verify add book api with different invalid isbn(special characters)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": "<>,.?/:;'{}[]|+_)(*&^%$#@!~",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC10B",
+    "testCaseDescription": "Verify add book api with different invalid isbn(alphanumeric with special char)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": "TestISBN123~`!@#$%^&*()-+",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC10C",
+    "testCaseDescription": "Verify add book api with different invalid isbn(alphabetic with special char)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": "IS@#%^&*$BN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC10D",
+    "testCaseDescription": "Verify add book api with different invalid isbn(numeric with special char)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": "12345@#$%^&*()",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC11A",
+    "testCaseDescription": "Verify add book api with different invalid isbn(numeric data type)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": 1234567890,
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC11B",
+    "testCaseDescription": "Verify add book api with different invalid isbn(boolean data type)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "345678111",
+      "author": "Test Author",
+      "isbn": true,
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC12A",
+    "testCaseDescription": "Verify add book api with different invalid aisle(alphabetic)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "abcdefghjkl",
+      "author": "Test Author",
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC12B",
+    "testCaseDescription": "Verify add book api with different invalid aisle(special char)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": ")(*&^%$#@!{}:",
+      "author": "Test Author",
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC12C",
+    "testCaseDescription": "Verify add book api with different invalid aisle(alphanumeric)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "TESTaisle12345",
+      "author": "Test Author",
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+  {
+    "testCaseId": "TC12D",
+    "testCaseDescription": "Verify add book api with different invalid aisle(numeric with special char)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "12345~!@#$%^&*()",
+      "author": "Test Author",
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC13A",
+    "testCaseDescription": "Verify add book api with different invalid aisle(numeric data type)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": 9876543210,
+      "author": "Test Author",
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC13B",
+    "testCaseDescription": "Verify add book api with different invalid aisle(boolean data type)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": false,
+      "author": "Test Author",
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC14",
+    "testCaseDescription": "Verify add book api with different invalid author(whitespace)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "76612301",
+      "author": "        ",
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC15A",
+    "testCaseDescription": "Verify add book api with different invalid author(numeric)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "76612301",
+      "author": 123456789,
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC15B",
+    "testCaseDescription": "Verify add book api with different invalid author(boolean)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":   {
+      "aisle": "76612302",
+      "author": true,
+      "isbn": "TESTISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "Msg": "name is is required"
+    }
+
+  }
+
+
+
+
+
+
+]

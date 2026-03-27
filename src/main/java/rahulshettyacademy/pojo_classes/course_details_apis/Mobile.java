@@ -1,4 +1,4 @@
-package rahulshettyacademy.pojo_classes_demo.deserialization;
+package rahulshettyacademy.pojo_classes.course_details_apis;
 
 public class Mobile {
 

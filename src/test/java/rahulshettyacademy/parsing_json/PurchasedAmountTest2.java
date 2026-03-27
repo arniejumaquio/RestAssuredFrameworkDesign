@@ -1,12 +1,12 @@
-package rahulshettyacademy;
+package rahulshettyacademy.parsing_json;
 
 import io.restassured.path.json.JsonPath;
-import org.apache.poi.xssf.usermodel.XSSFPivotTable;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import rahulshettyacademy.utilities.GetResponseUtility;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PurchasedAmountTest2 {
 
@@ -15,26 +15,25 @@ public class PurchasedAmountTest2 {
 
      String response =   GetResponseUtility.getResponseBody();
      JsonPath jsonPath = new JsonPath(response);
+     Map<String,Object> dashboardMap =  jsonPath.getMap("dashboard");
+     int purchaseAmount = (int)dashboardMap.get("purchaseAmount");
+     String website = (String) dashboardMap.get("website");
+     System.out.println(purchaseAmount);
+     System.out.println(website);
 
-      int arraySize = jsonPath.getInt("courses.size()");
-      for(int i = 0; i < arraySize; i++){
+     List<Map<String,Object>> coursesList =  jsonPath.getList("courses");
+     for(int i = 0; i < coursesList.size(); i++){
 
-       String courseTitle = jsonPath.get("courses["+i+"].title");
-       int coursePrice =jsonPath.get("courses["+i+"].price");
-       int courseCopies =jsonPath.get("courses["+i+"].copies");
+       Map<String,Object> courseMap =  coursesList.get(i);
+       String title = (String)courseMap.get("title");
+       int price = (int)courseMap.get("price");
+       int copies =  (int)courseMap.get("copies");
 
-       System.out.println(courseTitle);
-       System.out.println(coursePrice);
-       System.out.println(courseCopies);
+       System.out.println(title);
+       System.out.println(price);
+       System.out.println(copies);
 
-       int purchaseAmount = jsonPath.get("dashboard.purchaseAmount");
-       String website = jsonPath.get("dashboard.website");
-
-       System.out.println(purchaseAmount);
-       System.out.println(website);
-
-      }
-
+     }
 
     }
 

@@ -1,4 +1,4 @@
-package rahulshettyacademy;
+package rahulshettyacademy.book_tests;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -21,6 +21,7 @@ public class AddBookTest {
     @Test(dataProvider = "Books Data Set")
     public void addBookTest(String name,String isbn,String aisle,String author){
 
+
        RequestSpecification request = given().log().all().spec(requestSpecification).body(AddBodyUtility.getAddBookBody(name,isbn,aisle,author));
 
         Response response = request.when().post("/Library/Addbook.php").
@@ -29,9 +30,9 @@ public class AddBookTest {
         String msg = JSONUtility.getJsonValueStringFromPath(response.asString(),"Msg");
         String ID = JSONUtility.getJsonValueStringFromPath(response.asString(),"ID");
 
+        Assert.assertTrue(response.getStatusCode() == 200);
         Assert.assertEquals(msg,"successfully added");
         Assert.assertEquals(ID,isbn+aisle);
-
 
     }
 
@@ -45,6 +46,8 @@ public class AddBookTest {
         then().log().all().spec(responseSpecification).extract().response();
 
         String msg = JSONUtility.getJsonValueStringFromPath(response.asString(),"msg");
+
+        Assert.assertTrue(response.getStatusCode() == 200);
         Assert.assertEquals(msg,"book is successfully deleted");
 
     }
@@ -59,7 +62,6 @@ public class AddBookTest {
 
        int responseArraySize = JSONUtility.getJsonValueIntFromPath(response.asString(),"size()");
        for(int i = 0; i < responseArraySize; i++){
-
            String actualIsbn = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].isbn");
            String actualAisle = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].aisle");
            String actualId = actualIsbn + actualAisle;
@@ -70,20 +72,18 @@ public class AddBookTest {
            }else {
                Assert.assertTrue(false);
            }
-
        }
 
     }
-
 
     @DataProvider(name="Books Data Set")
     public Object[][] getBookData(){
 
        return new Object[][] {
 
-               {"Learn Selenium With Java","ISBN","1087654327","Harry Roque"},
-               {"Learn Appium With Java","ISBN","1087654328","Harry Roque"},
-               {"Learn RestAssured With Java","ISBN","1087654329","Harry Roque"}
+               {"Test Name","ISBN","34567891","Test Author"},
+               {"Test Name","ISBN","34567892","Test Author"},
+               {"Test Name","ISBN","34567893","Test Author"}
 
        };
 

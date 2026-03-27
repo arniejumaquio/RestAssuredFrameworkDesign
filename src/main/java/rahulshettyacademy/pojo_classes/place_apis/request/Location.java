@@ -2,10 +2,10 @@ package rahulshettyacademy.pojo_classes.place_apis.request;
 
 public class Location {
 
-    private Double lat;
-    private Double lng;
+    private double lat;
+    private double lng;
 
-    public Location(Double lat,Double lng){
+    public Location(double lat,double lng){
         this.lat = lat;
         this.lng = lng;
     }
@@ -14,7 +14,7 @@ public class Location {
 
     }
 
-    public Double getLat() {
+    public double getLat() {
         return lat;
     }
 
@@ -22,7 +22,7 @@ public class Location {
         this.lat = lat;
     }
 
-    public Double getLng() {
+    public double getLng() {
         return lng;
     }
 

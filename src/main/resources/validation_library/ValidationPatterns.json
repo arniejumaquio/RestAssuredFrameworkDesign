@@ -1,0 +1,231 @@
+{
+  "fieldValidationPatterns": {
+    "stringField": {
+      "description": "Common validation patterns for string fields",
+      "validations": [
+        {
+          "type": "empty",
+          "value": "",
+          "expectedError": "Field {fieldName} cannot be empty"
+        },
+        {
+          "type": "null",
+          "value": null,
+          "expectedError": "Field {fieldName} cannot be null"
+        },
+        {
+          "type": "missing",
+          "value": "REMOVE_FIELD",
+          "expectedError": "Field {fieldName} cannot be missing"
+        },
+        {
+          "type": "invalidType_numeric",
+          "value": 123456789,
+          "expectedError": "Field {fieldName} must be a string"
+        },
+        {
+          "type": "invalidType_boolean",
+          "value": false,
+          "expectedError": "Field {fieldName} must be a string"
+        },
+        {
+          "type": "invalidType_array",
+          "value": ["test", "array"],
+          "expectedError": "Field {fieldName} must be a string"
+        },
+        {
+          "type": "invalidType_object",
+          "value": {"key": "value"},
+          "expectedError": "Field {fieldName} must be a string"
+        },
+        {
+          "type": "whitespaceOnly",
+          "value": "   ",
+          "expectedError": "Field {fieldName} cannot be whitespace only"
+        },
+        {
+          "type": "maxLength",
+          "value": "GENERATE_LONG_STRING_1000",
+          "expectedError": "Field {fieldName} exceeds maximum length"
+        },
+        {
+          "type": "specialChars_xss",
+          "value": "<script>alert('XSS')</script>",
+          "expectedError": "Field {fieldName} contains invalid characters"
+        },
+        {
+          "type": "specialChars_sql",
+          "value": "'; DROP TABLE books;--",
+          "expectedError": "Field {fieldName} contains invalid characters"
+        }
+      ]
+    },
+    "numericField": {
+      "description": "Common validation patterns for numeric fields",
+      "validations": [
+        {
+          "type": "invalidType_string",
+          "value": "not a number",
+          "expectedError": "Field {fieldName} must be a number"
+        },
+        {
+          "type": "invalidType_boolean",
+          "value": true,
+          "expectedError": "Field {fieldName} must be a number"
+        },
+        {
+          "type": "null",
+          "value": null,
+          "expectedError": "Field {fieldName} cannot be null"
+        },
+        {
+          "type": "missing",
+          "value": "REMOVE_FIELD",
+          "expectedError": "Field {fieldName} cannot be missing"
+        },
+        {
+          "type": "negative",
+          "value": -1,
+          "expectedError": "Field {fieldName} cannot be negative"
+        },
+        {
+          "type": "zero",
+          "value": 0,
+          "expectedError": "Field {fieldName} cannot be zero"
+        },
+        {
+          "type": "maxValue",
+          "value": 999999999999,
+          "expectedError": "Field {fieldName} exceeds maximum value"
+        }
+      ]
+    },
+    "emailField": {
+      "description": "Common validation patterns for email fields",
+      "validations": [
+        {
+          "type": "invalidFormat_noAt",
+          "value": "invalidemail.com",
+          "expectedError": "Field {fieldName} must be a valid email"
+        },
+        {
+          "type": "invalidFormat_noDomain",
+          "value": "test@",
+          "expectedError": "Field {fieldName} must be a valid email"
+        },
+        {
+          "type": "invalidFormat_noLocal",
+          "value": "@domain.com",
+          "expectedError": "Field {fieldName} must be a valid email"
+        },
+        {
+          "type": "empty",
+          "value": "",
+          "expectedError": "Field {fieldName} cannot be empty"
+        },
+        {
+          "type": "null",
+          "value": null,
+          "expectedError": "Field {fieldName} cannot be null"
+        }
+      ]
+    },
+    "dateField": {
+      "description": "Common validation patterns for date fields",
+      "validations": [
+        {
+          "type": "invalidFormat",
+          "value": "not-a-date",
+          "expectedError": "Field {fieldName} must be a valid date"
+        },
+        {
+          "type": "invalidFormat_wrongPattern",
+          "value": "2024-13-45",
+          "expectedError": "Field {fieldName} must be a valid date"
+        },
+        {
+          "type": "null",
+          "value": null,
+          "expectedError": "Field {fieldName} cannot be null"
+        },
+        {
+          "type": "empty",
+          "value": "",
+          "expectedError": "Field {fieldName} cannot be empty"
+        }
+      ]
+    },
+    "booleanField": {
+      "description": "Common validation patterns for boolean fields",
+      "validations": [
+        {
+          "type": "invalidType_string",
+          "value": "yes",
+          "expectedError": "Field {fieldName} must be a boolean"
+        },
+        {
+          "type": "invalidType_numeric",
+          "value": 1,
+          "expectedError": "Field {fieldName} must be a boolean"
+        },
+        {
+          "type": "null",
+          "value": null,
+          "expectedError": "Field {fieldName} cannot be null"
+        }
+      ]
+    }
+  },
+  "headerValidationPatterns": {
+    "description": "Common validation patterns for HTTP headers",
+    "validations": [
+      {
+        "type": "missingContentType",
+        "headers": {},
+        "expectedError": "Content-Type header is required"
+      },
+      {
+        "type": "emptyContentType",
+        "headers": {
+          "Content-Type": ""
+        },
+        "expectedError": "Content-Type header cannot be empty"
+      },
+      {
+        "type": "invalidContentType",
+        "headers": {
+          "Content-Type": "text/plain"
+        },
+        "expectedError": "Content-Type must be application/json"
+      },
+      {
+        "type": "missingAuthorization",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "expectedError": "Authorization header is required"
+      }
+    ]
+  },
+  "businessLogicPatterns": {
+    "description": "Common business logic validation patterns",
+    "validations": [
+      {
+        "type": "duplicateResource",
+        "description": "Attempt to create a resource that already exists"
+      },
+      {
+        "type": "nonExistentResource",
+        "description": "Attempt to access/update/delete a resource that doesn't exist"
+      },
+      {
+        "type": "unauthorizedAccess",
+        "description": "Attempt to access a resource without proper permissions"
+      },
+      {
+        "type": "invalidStateTransition",
+        "description": "Attempt to transition a resource to an invalid state"
+      }
+    ]
+  }
+}

@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class AddBookTestTwo {
+public class AddBookTest2 {
 
     RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("http://216.10.245.166").setContentType(ContentType.JSON).build();
     ResponseSpecification responseSpecification =  new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();

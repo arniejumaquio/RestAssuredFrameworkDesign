@@ -1,0 +1,20 @@
+[
+  {
+    "test": {
+      "testCase": "TC - 1 Valid Request with all required fields"
+    },
+
+    "headers": {
+      "Content-Type": "application/json"
+    },
+
+    "request": {
+      "name": "Name Test",
+      "isbn": "ISBN Test",
+      "aisle": "0320202602",
+      "author": "Author Test"
+    }
+  }
+
+
+]

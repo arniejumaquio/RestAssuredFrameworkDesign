@@ -1,0 +1,22 @@
+TC_ID,Test Category,Test Case Description,place_id,API Key,Expected Status Code,Expected Behavior
+TC_001,Positive,Valid request with existing place_id - verify all response fields,{valid_place_id},qaclick123,200,Response returns 200 with all fields (location.latitude and location.longitude and accuracy and name and phone_number and address and website and language) matching values used during place creation
+TC_002,Positive,Valid request - verify address returns updated value after PUT update,{valid_place_id_after_update},qaclick123,200,address field returns the new updated address value instead of the original
+TC_003,Positive,Valid request - place created with special characters in address,{valid_place_id_special_address},qaclick123,200,address field returns the special characters exactly as stored during creation
+TC_004,Positive,Valid request - place created with HTTPS website,{valid_place_id_https},qaclick123,200,website field returns the HTTPS URL exactly as stored during creation
+TC_005,Positive,Valid request - verify response Content-Type is application/json,{valid_place_id},qaclick123,200,Response header Content-Type is application/json
+TC_006,Negative,Missing place_id query parameter (param not included in URL),,qaclick123,400,Error - place_id query parameter is required. URL format: /get/json?key=qaclick123
+TC_007,Negative,Empty place_id query parameter (param present but blank),,qaclick123,400,Error - place_id cannot be empty. URL format: /get/json?place_id=&key=qaclick123
+TC_008,Negative,Non-existent place_id,nonexistent_place_id_abc123,qaclick123,404,"Response returns msg: ""Get operation failed, looks like place_id  doesn't exists"""
+TC_009,Negative,Deleted place_id (place was created then deleted),{deleted_place_id},qaclick123,404,"Response returns msg: ""Get operation failed, looks like place_id  doesn't exists"""
+TC_010,Negative,Invalid API key,{valid_place_id},INVALID_KEY,403,Error - forbidden due to invalid API key
+TC_011,Negative,Missing API key,{valid_place_id},,403,Error - forbidden due to missing API key
+TC_012,Negative,Wrong HTTP method (POST instead of GET),{valid_place_id},qaclick123,405,Error - method not allowed
+TC_013,Negative,SQL injection attempt in place_id,"' OR 1=1; --",qaclick123,404,No data returned - SQL injection does not execute. Returns not found error message
+TC_014,Negative,Random numeric string for place_id,12345,qaclick123,404,"Response returns msg: ""Get operation failed, looks like place_id  doesn't exists"""
+TC_015,Negative,Special characters only for place_id,!@#$%^&*(),qaclick123,404,"Response returns msg: ""Get operation failed, looks like place_id  doesn't exists"""
+TC_016,Edge,Very long string for place_id (256+ chars),aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,qaclick123,404,"Response returns msg: ""Get operation failed, looks like place_id  doesn't exists"""
+TC_017,Edge,place_id with leading whitespace, 25718d3daf17fe00c0f56cfdbb1a1283,qaclick123,404,Server does not trim whitespace - returns not found error message
+TC_018,Edge,place_id with trailing whitespace,25718d3daf17fe00c0f56cfdbb1a1283 ,qaclick123,404,Server does not trim whitespace - returns not found error message
+TC_019,Edge,Unicode characters for place_id,カフェ☕東京,qaclick123,404,"Response returns msg: ""Get operation failed, looks like place_id  doesn't exists"""
+TC_020,Edge,XSS script tag in place_id,<script>alert('xss')</script>,qaclick123,404,No script execution - server returns not found error message safely
+TC_021,Edge,URL encoded SQL injection in place_id,%27%20OR%201%3D1%3B%20--,qaclick123,404,Server decodes URL encoding safely - returns not found error message

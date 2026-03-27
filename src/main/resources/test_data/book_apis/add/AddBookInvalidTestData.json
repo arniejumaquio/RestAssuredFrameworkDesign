@@ -1,0 +1,380 @@
+[
+
+  {
+
+    "testCaseId": "TC27",
+    "testCaseDescription": "Verify add book api with empty name",
+    "headers":{
+        "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "390490492",
+      "author": "Test Author",
+      "isbn": "Test ISBN",
+      "name": ""
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field name cannot be empty"
+    }
+  },
+
+  {
+
+    "testCaseId": "TC28",
+    "testCaseDescription": "Verify add book api with empty isbn",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "390489492",
+      "author": "Test Author",
+      "isbn": "",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+    "error": "Bad Request",
+    "message": "Field isbn cannot be empty"
+  }
+
+  },
+
+
+  {
+
+    "testCaseId": "TC29",
+    "testCaseDescription": "Verify add book api with empty aisle",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "",
+      "author": "Test Author",
+      "isbn": "Test ISBN",
+      "name": "Test Name12345"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field aisle cannot be empty"
+    }
+
+  },
+
+  {
+
+    "testCaseId": "TC30",
+    "testCaseDescription": "Verify add book api with empty author",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "390488492",
+      "author": "",
+      "isbn": "Test ISBN",
+      "name": "12345"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field author cannot be empty"
+    }
+  },
+
+  {
+
+    "testCaseId": "TC31",
+    "testCaseDescription": "Verify add book api with missing name parameter",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "390487492",
+      "author": "Test Author",
+      "isbn": "Test ISBN"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field name cannot be missing"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC32",
+    "testCaseDescription": "Verify add book api with missing isbn parameter",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "390486492",
+      "author": "Test Author",
+      "name": "Learn Selenium With Java"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC33",
+    "testCaseDescription": "Verify add book api with missing aisle parameter",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "author": "Test Author",
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC34",
+    "testCaseDescription": "Verify add book api with missing author parameter",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request":{
+      "aisle": "390493492",
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+
+  {
+    "testCaseId": "TC35",
+    "testCaseDescription": "Verify add book api with null name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "390493492",
+      "author": "Test Author",
+      "isbn": "Test ISBN",
+      "name": null
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+
+  {
+    "testCaseId": "TC36",
+    "testCaseDescription": "Verify add book api with null isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "390493492",
+      "author": "Test Author",
+      "isbn": null,
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC37",
+    "testCaseDescription": "Verify add book api with null aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": null,
+      "author": "Test Author",
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+
+  {
+    "testCaseId": "TC38",
+    "testCaseDescription": "Verify add book api with null aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "562138213",
+      "author":null,
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC39",
+    "testCaseDescription": "Verify add book api with invalid(numeric) name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "562138213",
+      "author":"Test Author",
+      "isbn": "Test ISBN",
+      "name": 123456789
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC40",
+    "testCaseDescription": "Verify add book api with invalid(boolean) name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "562778213",
+      "author":"Test Author",
+      "isbn": "Test ISBN",
+      "name": false
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC41",
+    "testCaseDescription": "Verify add book api with invalid(numeric) isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "562778213",
+      "author":"Test Author",
+      "isbn": 123456789,
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC42",
+    "testCaseDescription": "Verify add book api with invalid(boolean) isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "562778213",
+      "author":"Test Author",
+      "isbn": false,
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC43",
+    "testCaseDescription": "Verify add book api with invalid(numeric) aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": 562778213,
+      "author":"Test Author",
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+
+  {
+    "testCaseId": "TC44",
+    "testCaseDescription": "Verify add book api with invalid(boolean) aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": false,
+      "author":"Test Author",
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+
+  {
+    "testCaseId": "TC45",
+    "testCaseDescription": "Verify add book api with invalid(numeric) author ",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "9512361263",
+      "author": 1231239123,
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  },
+
+  {
+    "testCaseId": "TC46",
+    "testCaseDescription": "Verify add book api with invalid(boolean) author ",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "9512361263",
+      "author": true,
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "error": "Bad Request",
+      "message": "Field isbn cannot be missing"
+    }
+  }
+
+
+
+
+
+
+
+
+    ]

@@ -1,0 +1,585 @@
+[
+  {
+    "testCaseId": "TC1",
+    "testCaseDescription": "Valid device with all required fields",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 201,
+      "message": "Device created successfully"
+    }
+  },
+  {
+    "testCaseId": "TC2",
+    "testCaseDescription": "Valid device with permission = true",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "c7c80688-c8e1-53b4-9b2c-9fcdbe788afd",
+        "model": "iPhone 15 Pro",
+        "channel": "mobile",
+        "permission": true,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 201,
+      "message": "Device created successfully"
+    }
+  },
+  {
+    "testCaseId": "TC3",
+    "testCaseDescription": "Valid device with all optional fields populated",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "d8d91799-d9f2-64c5-ac3d-afdedf899bge",
+        "model": "Pixel 8",
+        "channel": "mobile",
+        "permission": true,
+        "dataReferenceId": "DATA-REF-12345",
+        "credolabReferenceId": "CREDOLAB-REF-67890"
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 201,
+      "message": "Device created successfully"
+    }
+  },
+  {
+    "testCaseId": "TC4",
+    "testCaseDescription": "Valid device with channel = web",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "e9ea280a-eaf3-75d6-bd4e-bfefef9aacgf",
+        "model": "Chrome Browser",
+        "channel": "web",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 201,
+      "message": "Device created successfully"
+    }
+  },
+  {
+    "testCaseId": "TC5",
+    "testCaseDescription": "Valid device with empty reference IDs",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "f0fb391b-fbe4-86e7-ce5f-cgfgfgabbdhg",
+        "model": "OnePlus 12",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 201,
+      "message": "Device created successfully"
+    }
+  },
+  {
+    "testCaseId": "TC6",
+    "testCaseDescription": "Missing id field",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field id is required"
+    }
+  },
+  {
+    "testCaseId": "TC7",
+    "testCaseDescription": "Null id",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": null,
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field id cannot be null"
+    }
+  },
+  {
+    "testCaseId": "TC8",
+    "testCaseDescription": "Invalid UUID format",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "invalid-uuid-123",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field id must be a valid UUID"
+    }
+  },
+  {
+    "testCaseId": "TC9",
+    "testCaseDescription": "Missing model field",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field model is required"
+    }
+  },
+  {
+    "testCaseId": "TC10",
+    "testCaseDescription": "Missing channel field",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field channel is required"
+    }
+  },
+  {
+    "testCaseId": "TC11",
+    "testCaseDescription": "Missing permission field",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field permission is required"
+    }
+  },
+  {
+    "testCaseId": "TC12",
+    "testCaseDescription": "Invalid data type for permission (string)",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": "yes",
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field permission must be boolean"
+    }
+  },
+  {
+    "testCaseId": "TC13",
+    "testCaseDescription": "Invalid data type for model (numeric)",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": 123456,
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field model must be string"
+    }
+  },
+  {
+    "testCaseId": "TC14",
+    "testCaseDescription": "Invalid data type for channel (boolean)",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": true,
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field channel must be string"
+    }
+  },
+  {
+    "testCaseId": "TC15",
+    "testCaseDescription": "Invalid data type for id (numeric)",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": 123456789,
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field id must be string"
+    }
+  },
+  {
+    "testCaseId": "TC16",
+    "testCaseDescription": "Invalid channel value (not in enum)",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "desktop",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Invalid channel value. Allowed values: mobile, web, tablet"
+    }
+  },
+  {
+    "testCaseId": "TC17",
+    "testCaseDescription": "Duplicate device id",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 409,
+      "error": "Conflict",
+      "message": "Device with this id already exists"
+    },
+    "notes": "Run this after TC1 to test duplicate id handling"
+  },
+  {
+    "testCaseId": "TC18",
+    "testCaseDescription": "Empty model field",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field model cannot be empty"
+    }
+  },
+  {
+    "testCaseId": "TC19",
+    "testCaseDescription": "XSS attempt in model field",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "<script>alert('XSS')</script>",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field model contains invalid characters"
+    }
+  },
+  {
+    "testCaseId": "TC20",
+    "testCaseDescription": "SQL injection in dataReferenceId",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "'; DROP TABLE devices;--",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Field dataReferenceId contains invalid characters"
+    }
+  },
+  {
+    "testCaseId": "TC21",
+    "testCaseDescription": "Missing Content-Type header",
+    "priority": "P1",
+    "headers": {
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 415,
+      "error": "Unsupported Media Type",
+      "message": "Content-Type header is required"
+    }
+  },
+  {
+    "testCaseId": "TC22",
+    "testCaseDescription": "Invalid Content-Type header",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "text/plain",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 415,
+      "error": "Unsupported Media Type",
+      "message": "Content-Type must be application/json"
+    }
+  },
+  {
+    "testCaseId": "TC23",
+    "testCaseDescription": "Malformed JSON payload",
+    "priority": "P1",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": "{ device: { id: 'invalid json' }",
+    "expectedResponse": {
+      "statusCode": 400,
+      "error": "Bad Request",
+      "message": "Invalid JSON format"
+    }
+  },
+  {
+    "testCaseId": "TC24",
+    "testCaseDescription": "Missing Authorization header",
+    "priority": "P0",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": ""
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 401,
+      "error": "Unauthorized",
+      "message": "Authorization header is required"
+    }
+  },
+  {
+    "testCaseId": "TC25",
+    "testCaseDescription": "Extra unexpected fields in payload",
+    "priority": "P2",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer <token>"
+    },
+    "request": {
+      "device": {
+        "id": "b6b70577-b7d0-42a3-8a1b-8ebcad6977ec",
+        "model": "Galaxy S24",
+        "channel": "mobile",
+        "permission": false,
+        "dataReferenceId": "",
+        "credolabReferenceId": "",
+        "extraField": "should be ignored or rejected",
+        "anotherField": 12345
+      }
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "message": "Device created successfully",
+      "notes": "OR statusCode: 400 if API uses strict validation"
+    }
+  }
+]

@@ -1,4 +1,4 @@
-package rahulshettyacademy;
+package rahulshettyacademy.parsing_json;
 
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
@@ -12,8 +12,8 @@ public class PurchasedAmountTest {
 
         JsonPath jsonPath = new JsonPath(GetResponseUtility.getResponseBody());
         int total = 0;
-        int coursesCount = jsonPath.getInt("courses.size()");
-        for(int i = 0 ; i < coursesCount; i++){
+        int coursesSize = jsonPath.getInt("courses.size()");
+        for(int i = 0 ; i < coursesSize; i++){
 
           int coursePrice =  jsonPath.getInt("courses["+i+"].price");
           int courseCopies =  jsonPath.getInt("courses["+i+"].copies");

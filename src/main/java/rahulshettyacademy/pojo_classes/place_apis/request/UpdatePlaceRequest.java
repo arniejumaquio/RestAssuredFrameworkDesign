@@ -6,6 +6,16 @@ public class UpdatePlaceRequest {
     private String address;
     private String key;
 
+    public UpdatePlaceRequest(){
+
+    }
+
+    public UpdatePlaceRequest(String place_id,String address,String key){
+        this.place_id = place_id;
+        this.address = address;
+        this.key = key;
+    }
+
     public String getPlace_id() {
         return place_id;
     }

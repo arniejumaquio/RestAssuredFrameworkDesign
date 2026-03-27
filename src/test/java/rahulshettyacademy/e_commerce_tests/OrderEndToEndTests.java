@@ -15,14 +15,12 @@ import rahulshettyacademy.pojo_classes.ecommerce_apis.request.Orders;
 import rahulshettyacademy.pojo_classes.ecommerce_apis.request.PlaceOrderRequest;
 import rahulshettyacademy.pojo_classes.ecommerce_apis.response.*;
 import rahulshettyacademy.utilities.JSONUtility;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import static io.restassured.RestAssured.given;
 
 public class OrderEndToEndTests {
@@ -35,7 +33,6 @@ public class OrderEndToEndTests {
     private String productId;
     private String orderId;
     private String country;
-
 
     @Test(dataProvider = "getLoginCredentials",priority = 1)
     public void getTokenTest(HashMap<String,String> data){
@@ -66,6 +63,8 @@ public class OrderEndToEndTests {
         RequestSpecification request = given().log().all().header("Authorization",token).params(formData).multiPart("productImage",image);
         CreateProductResponse response =  request.post(OrderAPIResources.CREATE_PRODUCT.getResourceUrl()).then().assertThat().statusCode(201).extract().as(CreateProductResponse.class);
         productId = response.getProductId();
+
+        Assert.assertNotNull(productId);
         Assert.assertEquals(response.getMessage(),"Product Added Successfully");
 
     }
@@ -79,6 +78,7 @@ public class OrderEndToEndTests {
         orderId =  response.getOrders().get(0);
         country = placeOrderData.get("country");
 
+        Assert.assertNotNull(orderId);
         Assert.assertEquals(response.getProductOrderId().get(0),productId);
         Assert.assertEquals(response.getMessage(),"Order Placed Successfully");
 
@@ -109,7 +109,7 @@ public class OrderEndToEndTests {
     public void deleteOrderTest(){
 
        RequestSpecification request = given().log().all().spec(requestSpecification).header("Authorization",token);
-       DeleteOrderResponse response = request.when().delete(OrderAPIResources.DELETE_ORDER.getResourceUrl()+orderId).then().extract().response().as(DeleteOrderResponse.class);
+       DeleteOrderResponse response = request.when().delete(OrderAPIResources.DELETE_ORDER.getResourceUrl()+orderId).then().assertThat().statusCode(200).extract().response().as(DeleteOrderResponse.class);
 
        Assert.assertEquals(response.getMessage(),"Orders Deleted Successfully");
 
@@ -120,8 +120,8 @@ public class OrderEndToEndTests {
     public void getOrderDetailsTest(){
 
         RestAssured.baseURI = "https://rahulshettyacademy.com/";
-       RequestSpecification request = given().log().all().header("Authorization",token).queryParam("id",orderId);
-       GetOrderDetailsErrorResponse response = request.when().get(OrderAPIResources.GET_ORDER_DETAILS.getResourceUrl()).then().assertThat().statusCode(400).extract().response().as(GetOrderDetailsErrorResponse.class);
+        RequestSpecification request = given().log().all().header("Authorization",token).queryParam("id",orderId);
+        GetOrderDetailsErrorResponse response = request.when().get(OrderAPIResources.GET_ORDER_DETAILS.getResourceUrl()).then().assertThat().statusCode(400).extract().response().as(GetOrderDetailsErrorResponse.class);
 
        Assert.assertEquals(response.getMessage(),"Order not found");
 
@@ -145,7 +145,7 @@ public class OrderEndToEndTests {
     public Object[][]  getLoginCredentials() throws IOException {
 
 
-        List<HashMap<String, String>> credentials =JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/LoginTestData.json");
+        List<HashMap<String, Object>> credentials =JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/e_commerce_apis/LoginTestData.json");
 
         return new Object[][]{{credentials.get(0)}};
 
@@ -155,7 +155,7 @@ public class OrderEndToEndTests {
     @DataProvider
     public Object[][] getCreateProductData()  {
 
-        List<HashMap<String,String>> createProductDatas = null;
+        List<HashMap<String,Object>> createProductDatas = null;
         try {
 
             createProductDatas =  JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/CreateProductData.json");
@@ -171,7 +171,7 @@ public class OrderEndToEndTests {
     @DataProvider
     public Object[][] getPlaceOrderData() throws IOException {
 
-     List<HashMap<String,String>> placeOrderDatas =   JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/PlaceOrderData.json");
+     List<HashMap<String,Object>> placeOrderDatas =   JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/PlaceOrderData.json");
 
      return new Object[][] { {placeOrderDatas.get(0)}};
 

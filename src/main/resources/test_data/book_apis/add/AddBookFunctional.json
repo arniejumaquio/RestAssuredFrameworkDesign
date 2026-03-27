@@ -1,0 +1,63 @@
+[
+
+  {
+    "testCaseId": "TC1",
+    "testCaseDescription": "Verify add book api with valid data",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+
+
+  {
+
+    "testCaseId": "TC2",
+    "testCaseDescription": "Verify multiple book can be added with same author",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "345678105",
+      "author": "Test Author",
+      "isbn": "Test ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+
+
+  {
+    "testCaseId": "TC3",
+    "testCaseDescription": "Verify add book api with duplicate details",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "aisle": "345678103",
+      "author": "Test Author",
+      "isbn": "ISBN",
+      "name": "Test Name"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "Book Already Exists"
+    }
+  }
+
+]

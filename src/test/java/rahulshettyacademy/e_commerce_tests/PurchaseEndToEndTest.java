@@ -15,14 +15,12 @@ import rahulshettyacademy.pojo_classes.ecommerce_apis.response.LoginResponse;
 import rahulshettyacademy.pojo_classes.ecommerce_apis.response.GetOrderDetailsResponse;
 import rahulshettyacademy.pojo_classes.ecommerce_apis.response.PlaceOrderResponse;
 import rahulshettyacademy.utilities.JSONUtility;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import static io.restassured.RestAssured.given;
 
 public class PurchaseEndToEndTest {
@@ -31,6 +29,7 @@ public class PurchaseEndToEndTest {
     String userId;
     String productId;
     String orderId;
+    String email;
 
     @Test(priority = 1,dataProvider = "Login Test Data")
     public void loginTest(HashMap<String, String> testData) throws IOException {
@@ -39,7 +38,8 @@ public class PurchaseEndToEndTest {
                 .setContentType(ContentType.JSON).build();
 
         LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setUserEmail(testData.get("email"));
+        email = testData.get("email");
+        loginRequest.setUserEmail(email);
         loginRequest.setUserPassword(testData.get("password"));
 
        RequestSpecification request = given().log().all().spec(requestSpecification).body(loginRequest);
@@ -48,6 +48,7 @@ public class PurchaseEndToEndTest {
        token = response.getToken();
        userId = response.getUserId();
 
+       Assert.assertNotNull(response.getToken());
        Assert.assertEquals(response.getUserId(),testData.get("userId"));
        Assert.assertEquals(response.getMessage(),testData.get("message"));
 
@@ -57,12 +58,8 @@ public class PurchaseEndToEndTest {
     @DataProvider(name ="Login Test Data")
     public Object[][] getLoginTestData() throws IOException {
 
-
-        List<HashMap<String, String>> testData = JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/LoginTestData.json");
-
+        List<HashMap<String, Object>> testData = JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/LoginTestData.json");
         return new Object[][]{{testData.get(0)}};
-
-
     }
 
     @Test(priority = 2)
@@ -78,16 +75,16 @@ public class PurchaseEndToEndTest {
       formParams.put("productSubCategory","shirts");
       formParams.put("productPrice",10000000);
       formParams.put("productDescription","Gadget");
-      formParams.put("productFor","Unisex");
-
+      formParams.put("productFor","Nala Tombits");
 
 
      RequestSpecification request = given().log().all().spec(requestSpecification).params(formParams).multiPart("productImage",new File("src/main/resources/attachments/attachment.png"));
-     String response = request.post("/api/ecom/product/add-product").then().spec(responseSpecification).extract().response().asString();
+     String response = request.when().post("/api/ecom/product/add-product").then().spec(responseSpecification).extract().response().asString();
 
       productId =JSONUtility.getJsonValueStringFromPath(response,"productId");
       String message = JSONUtility.getJsonValueStringFromPath(response,"message");
 
+      Assert.assertNotNull( JSONUtility.getJsonValueFromPath(response,"productId") );
       Assert.assertEquals(message,"Product Added Successfully");
 
       //productId = 6981af03c941646b7acfe2d9
@@ -118,6 +115,7 @@ public class PurchaseEndToEndTest {
 
         String message = response.getMessage();
 
+        Assert.assertNotNull(orderId);
         Assert.assertEquals(actualProductId,productId);
         Assert.assertEquals(message,"Order Placed Successfully");
 
@@ -130,6 +128,12 @@ public class PurchaseEndToEndTest {
                 .addQueryParam("id",orderId).build();
         RequestSpecification request =given().spec(requestSpecification);
         GetOrderDetailsResponse response = request.when().get("/api/ecom/order/get-orders-details").as(GetOrderDetailsResponse.class);
+
+        Assert.assertEquals(response.getData().get_id(),orderId);
+        Assert.assertEquals(response.getData().getOrderById(),userId);
+        Assert.assertEquals(response.getData().getOrderBy(),email);
+        Assert.assertEquals(response.getData().getProductOrderedId(),productId);
+
 
         Assert.assertEquals(response.getMessage(),"Orders fetched for customer Successfully");
 
@@ -172,15 +176,4 @@ public class PurchaseEndToEndTest {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 

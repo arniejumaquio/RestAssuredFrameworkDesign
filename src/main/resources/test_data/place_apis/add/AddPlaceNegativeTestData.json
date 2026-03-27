@@ -1,0 +1,1479 @@
+[
+
+  {
+
+    "tcId":"TC1",
+    "tcDescription": "Invalid request with missing lat",
+    "msg": "Error - lat is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+      "lng": 33.427362
+    },
+    "accuracy": 50,
+    "name": "123456789",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "1283128381238123",
+    "types": [
+      "shoe park"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+    }
+
+
+  },
+
+  {
+    "tcId":"TC2",
+    "tcDescription": "Invalid request with missing lng",
+    "msg": "Error - lng is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC3",
+    "tcDescription": "Invalid request with missing accuracy",
+    "msg": "Error - accuracy is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC4",
+    "tcDescription": "Invalid request with missing name",
+    "msg": "Error - name is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+
+    "tcId":"TC5",
+    "tcDescription": "Invalid request with missing phone_number",
+    "msg": "Error - phone_number is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+
+    "tcId":"TC6",
+    "tcDescription": "TC6 - Invalid request with missing address",
+    "msg": "Error - address is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC7",
+    "tcDescription": "Invalid request with missing website",
+    "msg": "Error - website is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request":  {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "language": "en-AED"
+    }
+  },
+
+  {
+
+    "tcId":"TC8",
+    "tcDescription": "Invalid request with missing language",
+    "msg": "Error - language is required",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com"
+    }
+  },
+
+
+
+  {
+    "tcId":"TC9",
+    "tcDescription": "TC9- Invalid request with empty lat(null)",
+    "msg": "Error - lat is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": null,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC10",
+    "tcDescription": "TC10 - Invalid request with empty lng(null)",
+    "msg": "Error - lng is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": null
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC11",
+    "tcDescription": "Invalid request with empty accuracy(null)",
+    "msg": "Error - accuracy is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request":  {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": null,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC12A",
+    "tcDescription": "Invalid request with empty name(null)",
+    "msg": "Error - name is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": null,
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC12B",
+    "tcDescription": "Invalid request with empty name('')",
+    "msg": "Error - name is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC13A",
+    "tcDescription": "Invalid request with empty phone_number(null)",
+    "msg": "Error - phone_number is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": null,
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC13B",
+    "tcDescription": "TC15 - Invalid request with phone_number ('')",
+    "msg": "Error - phone_number is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC14A",
+    "tcDescription": "Invalid request with empty address(null)",
+    "msg": "Error - address is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": null,
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC14B",
+    "tcDescription": "Invalid request with empty address('')",
+    "msg": "Error - address is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC15A",
+    "tcDescription": "Invalid request with empty types(null)",
+    "msg": "Error - types is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": null,
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC15B",
+    "tcDescription": "Invalid request with empty types('')",
+    "msg": "Error - types is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        ""
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC16A",
+    "tcDescription": "Invalid request with empty website(null)",
+    "msg": "Error - website is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": null,
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC16B",
+    "tcDescription": "Invalid request with empty website('')",
+    "msg": "Error - website is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC17A",
+    "tcDescription": "Invalid request with empty language(null)",
+    "msg": "Error - language is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": null
+    }
+  },
+
+  {
+    "tcId":"TC17B",
+    "tcDescription": "Invalid request with empty language('')",
+    "msg": "Error - language is empty",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": ""
+    }
+  },
+
+  {
+    "tcId":"TC18A",
+    "tcDescription": "Invalid request with invalid lat(datatype)",
+    "msg": "Error - lat is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": "abcdef",
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC18B",
+    "tcDescription": "Invalid request with invalid lat(datatype)",
+    "msg": "Error - lat is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": false,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC18C",
+    "tcDescription": "Invalid request with invalid lat(datatype)",
+    "msg": "Error - lat is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": "33.427362",
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC19A",
+    "tcDescription": "Invalid request with invalid lng(datatype)",
+    "msg": "Error - lng is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": "abcde"
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC19B",
+    "tcDescription": "Invalid request with invalid lng(datatype)",
+    "msg": "Error - lng is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": true
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC19C",
+    "tcDescription": "Invalid request with invalid lng(datatype)",
+    "msg": "Error - lng is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": "33.427362"
+      },
+      "accuracy": 50,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC20A",
+    "tcDescription": "Invalid request with invalid accuracy(datatype)",
+    "msg": "Error - accuracy is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": "10",
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC20B",
+    "tcDescription": "Invalid request with invalid accuracy(datatype)",
+    "msg": "Error - accuracy is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": "abcdefgh",
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC20C",
+    "tcDescription": "Invalid request with invalid accuracy(datatype)",
+    "msg": "Error - accuracy is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": false,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC21A",
+    "tcDescription": "Invalid request with invalid name(datatype)",
+    "msg": "Error - name is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": 1234567890,
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC21B",
+    "tcDescription": "Invalid request with invalid name(datatype)",
+    "msg": "Error - name is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": false,
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC22",
+    "tcDescription": "Invalid request with invalid name(whitespace)",
+    "msg": "Error - name is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "           ",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23A",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "           ",
+      "phone_number": "(91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23A",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "+91 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23B",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23C",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(++91) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23D",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+123) 123 456 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23E",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 ABC 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23F",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 !@# 7890",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC23G",
+    "tcDescription": "Invalid request with invalid phone_number(format)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "        ",
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC24A",
+    "tcDescription": "Invalid request with invalid phone_number(data type)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": 911234567890,
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC24B",
+    "tcDescription": "Invalid request with invalid phone_number(data type)",
+    "msg": "Error - phone_number is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": false,
+      "address": "1283128381238123",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC25",
+    "tcDescription": "Invalid request with invalid address(whitespace)",
+    "msg": "Error - address is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "             ",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC26A",
+    "tcDescription": "Invalid request with invalid address(data type)",
+    "msg": "Error - address is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": 123456789,
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC26B",
+    "tcDescription": "Invalid request with invalid address(data type)",
+    "msg": "Error - address is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": true,
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC27",
+    "tcDescription": "Invalid request with invalid types(whitespace)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        "          "
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC28A",
+    "tcDescription": "Invalid request with invalid types(datatypes)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        false
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC28B",
+    "tcDescription": "Invalid request with invalid types(datatypes)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC29A",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "://rahulshettyacademy.com/",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC29B",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "https//rahulshettyacademy.com/",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC29C",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "https://.com/",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC29C",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "https://rahulshettyacademy/",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC29D",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "https://https://rahulshettyacademy.com/",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC29E",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "https:////rahulshettyacademy.com/",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC29F",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "sptttp://rahulshettyacademy.com/",
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC29G",
+    "tcDescription": "Invalid request with invalid website(format)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": "https://rahul@!#$%^&*()~.com/",
+      "language": "en-AED"
+    }
+  },
+
+
+  {
+    "tcId":"TC30A",
+    "tcDescription": "Invalid request with invalid website(datatype)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": 1234567890,
+      "language": "en-AED"
+    }
+  },
+
+  {
+    "tcId":"TC30B",
+    "tcDescription": "Invalid request with invalid website(datatype)",
+    "msg": "Error - types is invalid",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 33.427362,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "Name Test",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        123456789
+      ],
+      "website": false,
+      "language": "en-AED"
+    }
+  }
+
+
+
+
+]

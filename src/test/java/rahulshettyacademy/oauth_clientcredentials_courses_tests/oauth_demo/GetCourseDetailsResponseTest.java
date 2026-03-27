@@ -10,8 +10,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class GetCourseDetailsTest {
-
+public class GetCourseDetailsResponseTest {
 
    public  String accessToken;
 
@@ -122,32 +121,22 @@ public class GetCourseDetailsTest {
 
         }
 
-
-        /**int mobileAutomationSize = JSONUtility.getJsonValueIntFromPath(response,"courses.mobile.size()");
-
+        int mobileAutomationSize = JSONUtility.getJsonValueIntFromPath(response,"courses.mobile.size()");
         for(int i = 0; i < mobileAutomationSize; i++){
 
             String mobileAutomationCourseTitle = JSONUtility.getJsonValueStringFromPath(response,"courses.mobile["+i+"].courseTitle");
-            String mobileAutomationPrice = JSONUtility.getJsonValueStringFromPath(response,"courses.mobile["+i+"].price");
+            String mobileAutomationCoursePrice = JSONUtility.getJsonValueStringFromPath(response,"courses.mobile["+i+"].price");
 
             if(mobileAutomationCourseTitle.equalsIgnoreCase("Appium-Mobile Automation using Java")){
 
-                if(mobileAutomationPrice.equalsIgnoreCase("50")){
+                if(mobileAutomationCoursePrice.equalsIgnoreCase("50")){
                     Assert.assertTrue(true);
                 }else {
                     Assert.assertTrue(false);
                 }
-
-            }else{
-                System.out.println("Invalid course title or price");
             }
 
-        }**/
-
-        String mobileCourseTitle = "Appium-Mobile Automation using Java";
-        String mobileCoursePrice = "50";
-
-        AssertUtility.verifyCourseTitleAndPrice(response,"courses.mobile",mobileCourseTitle,mobileCoursePrice);
+        }
 
 
     }

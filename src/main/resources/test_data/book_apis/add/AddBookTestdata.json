@@ -1,10 +1,11 @@
 [
 
   {
-    "name": "DROP TABLE;",
-    "isbn": "XYZVW",
-    "aisle": "66778891",
-    "author": "SuperBookMaster"
+    "testCase": "Valid request with all required fields",
+    "name": "Mar7 Test Name",
+    "isbn": "TestISBN",
+    "aisle": "2147483647",
+    "author": "Test Author"
   }
 
 ]

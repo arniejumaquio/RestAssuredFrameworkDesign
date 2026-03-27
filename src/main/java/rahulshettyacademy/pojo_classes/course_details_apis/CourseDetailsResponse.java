@@ -1,6 +1,6 @@
 package rahulshettyacademy.pojo_classes.course_details_apis;
 
-public class CourseDetails {
+public class CourseDetailsResponse {
 
     private String instructor;
     private String url;

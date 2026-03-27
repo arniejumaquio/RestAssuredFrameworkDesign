@@ -7,7 +7,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -51,6 +50,7 @@ public class ExcelUtility {
                     if(eachRow.getCell(columnIndex).getStringCellValue().equalsIgnoreCase(rowName)){
                         // Scan entire column to identify Purchase text
                         cellIterator = eachRow.cellIterator();
+
                         while (cellIterator.hasNext()){
                             // Scan entire row to get all data
                             Cell eachCell = cellIterator.next();

@@ -1,0 +1,270 @@
+[
+
+  {
+    "testCaseId": "TC1A",
+    "testCaseDescription": "Verify add book api with different valid name(alphabetic)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "TestName",
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC1B",
+    "testCaseDescription": "Verify add book api with different valid name(numeric)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "0123456789",
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC1C",
+    "testCaseDescription": "Verify add book api with different valid name(special characters)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "<>,.?/:;{}[]_+-=|",
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+
+  {
+    "testCaseId": "TC1D",
+    "testCaseDescription": "Verify add book api with different valid name(alphanumeric)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "ABCDEFGH12345",
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+
+
+  {
+    "testCaseId": "TC1E",
+    "testCaseDescription": "Verify add book api with different valid name(with spaces in name)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "Test ISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+
+
+  {
+    "testCaseId": "TC2A",
+    "testCaseDescription": "Verify add book api with different valid isbn format(alphabetic)",
+    "headers":{
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "QWERTYUIOPASDFGHJKLZXCVBNM",
+      "aisle": "345678104",
+      "author": "Test Author"
+
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+
+  },
+  {
+    "testCaseId": "TC2B",
+    "testCaseDescription": "Verify add book api with different valid isbn format(numeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "0123456789",
+      "aisle": "345678104",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  },
+
+  {
+    "testCaseId": "TC2C",
+    "testCaseDescription": "Verify add book api with different valid isbn format(alphanumeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "ABCDEFG12345",
+      "aisle": "345678104",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  },
+
+  {
+    "testCaseId": "TC3",
+    "testCaseDescription": "Verify add book api with different valid aisle format(numeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "TESTISBN",
+      "aisle": "01234567890",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  },
+
+  {
+    "testCaseId": "TC4A",
+    "testCaseDescription": "Verify add book api with different valid author(alphabetic)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "TESTISBN",
+      "aisle": "01234567890",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  },
+
+  {
+    "testCaseId": "TC4B",
+    "testCaseDescription": "Verify add book api with different valid author(numeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "TESTISBN",
+      "aisle": "01234567890",
+      "author": "0123456789"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  },
+
+  {
+    "testCaseId": "TC4C",
+    "testCaseDescription": "Verify add book api with different valid author(alphanumeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "TESTISBN",
+      "aisle": "01234567890",
+      "author": "0123456789"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  },
+
+  {
+    "testCaseId": "TC4D",
+    "testCaseDescription": "Verify add book api with different valid author(special characters)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "TESTISBN",
+      "aisle": "01234567890",
+      "author": "<>,.?/;':{}[]|+-)(*&^%$#@!~"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  },
+
+  {
+    "testCaseId": "TC4E",
+    "testCaseDescription": "Verify add book api with different valid author(with spaces)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name 12345",
+      "isbn": "TESTISBN",
+      "aisle": "01234567890",
+      "author": "Test Author 2"
+    },
+    "expectedResponse": {
+      "statusCode": 200,
+      "Msg": "successfully added"
+    }
+  }
+
+
+
+]

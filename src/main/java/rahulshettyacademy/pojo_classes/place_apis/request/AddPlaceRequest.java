@@ -5,7 +5,7 @@ import java.util.List;
 public class AddPlaceRequest {
 
     private Location location;
-    private Integer accuracy;
+    private int accuracy;
     private String name;
     private  String phone_number;
     private String address;
@@ -13,7 +13,7 @@ public class AddPlaceRequest {
     private  String website;
     private String language;
 
-    public AddPlaceRequest(Location location,Integer accuracy,String name,String phone_number,String address,List<String> types,String website,String language){
+    public AddPlaceRequest(Location location,int accuracy,String name,String phone_number,String address,List<String> types,String website,String language){
 
         this.location = location;
         this.accuracy = accuracy;
@@ -37,11 +37,11 @@ public class AddPlaceRequest {
         this.location = location;
     }
 
-    public Integer getAccuracy() {
+    public int getAccuracy() {
         return accuracy;
     }
 
-    public void setAccuracy(Integer accuracy) {
+    public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;
     }
 

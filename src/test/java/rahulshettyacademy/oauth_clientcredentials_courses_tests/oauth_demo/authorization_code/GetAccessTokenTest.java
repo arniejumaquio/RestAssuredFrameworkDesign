@@ -1,4 +1,4 @@
-package rahulshettyacademy.oauth_demo.authorization_code;
+package rahulshettyacademy.oauth_clientcredentials_courses_tests.oauth_demo.authorization_code;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;

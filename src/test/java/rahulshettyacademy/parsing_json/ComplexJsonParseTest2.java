@@ -1,4 +1,4 @@
-package rahulshettyacademy;
+package rahulshettyacademy.parsing_json;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -8,9 +8,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.Test;
-
 import java.util.HashMap;
-
 import static io.restassured.RestAssured.given;
 
 public class ComplexJsonParseTest2 {
@@ -34,39 +32,25 @@ public class ComplexJsonParseTest2 {
         JsonPath jsonPath = new JsonPath(response.asString());
         int bookCounts = jsonPath.getInt("size()");
 
-        for(int i = 0; i < bookCounts; i++){
+        String expectedBookName = "RestAssured";
+        String expectedIsbn = "restAPI";
+        String expectedAisle = "345";
 
-            String bookName = jsonPath.getString("["+i+"].book_name");
-            if(bookName.contains("Test")){
-                //print all the book name,isbn and aisle
-                String isbn = jsonPath.getString("["+i+"].isbn");
-                String aisle = jsonPath.getString("["+i+"].aisle");
-
-                System.out.println(bookName);
-                System.out.println(isbn);
-                System.out.println(aisle);
-
-            }
-
-        }
-
-        System.out.println("--- ----  ----- ---- ------");
-        String expectedIsbn = "acdc";
-        String expectedAisle = "8905";
+        int occurence = 0;
 
         for(int i = 0; i < bookCounts; i++){
 
-           if(jsonPath.getString("["+i+"].isbn").equalsIgnoreCase(expectedIsbn) && jsonPath.getString("["+i+"].aisle").equalsIgnoreCase(expectedAisle)){
+                String actualBookName = jsonPath.get("["+i+"].book_name");
+                String actualIsbn = jsonPath.get("["+i+"].isbn");
+                String actualAisle = jsonPath.get("["+i+"].aisle");
 
-               //print the book name ,isbn and aisle
-               System.out.println(jsonPath.getString("["+i+"].book_name"));
-               System.out.println(jsonPath.getString("["+i+"].isbn"));
-               System.out.println(jsonPath.getString("["+i+"].aisle"));
-
-           }
+                if(actualBookName.equalsIgnoreCase(expectedBookName) && actualIsbn.equalsIgnoreCase(expectedIsbn) && actualAisle.equalsIgnoreCase(expectedAisle)){
+                     occurence++;
+                }
 
         }
 
+        System.out.println("Occurence = "+occurence);
 
     }
 

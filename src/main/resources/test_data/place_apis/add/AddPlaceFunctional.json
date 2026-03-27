@@ -1,0 +1,811 @@
+[
+
+  {
+    "tcId": "TC1",
+    "tc_description": "Verify add place with all valid data",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -38.383494,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "House Of Tangerines",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+
+    "tcId": "TC2A",
+    "tc_description": "Verify add place with different valid lat(zero)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 0,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "House Of Tangerines",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+
+    "tcId": "TC2B",
+    "tc_description": "Verify add place with different valid lat(integer)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 45,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "House Of Tangerines",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+  {
+    "tcId": "TC2C",
+    "tc_description": "Verify add place with different valid lat(decimal)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 99.78,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "House Of Tangerines",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+
+    "tcId": "TC3A",
+    "tc_description": "Verify add place with different valid lng(zero)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 0
+      },
+      "accuracy": 50,
+      "name": "House Of Tangerines",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+
+    "tcId": "TC3B",
+    "tc_description": "Verify add place with different valid lng(integer)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 123
+      },
+      "accuracy": 50,
+      "name": "~!@#$%%^&*()_={}[]<>,.?;'L",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+
+    "tcId": "TC3C",
+    "tc_description": "Verify add place with different valid lng(decimal)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 125.79
+      },
+      "accuracy": 50,
+      "name": "Name123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+  {
+
+    "tcId": "TC4A",
+    "tc_description": "Verify add place with different valid accuracy(zero)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 0,
+      "name": "123456789",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+
+    "tcId": "TC4B",
+    "tc_description": "Verify add place with different valid accuracy(integer)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 150,
+      "name": "NAME",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+
+    "tcId": "TC4C",
+    "tc_description": "Verify add place with different valid accuracy(decimal)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 89.78,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+  {
+
+    "tcId": "TC5A",
+    "tc_description": "Verify add place with different valid name(alphabethic)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Full House",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+  {
+
+    "tcId": "TC5B",
+    "tc_description": "Verify add place with different valid name(numeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "1234567890",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+  {
+
+    "tcId": "TC5C",
+    "tc_description": "Verify add place with different valid name(alphanumeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "House12345",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+
+    "tcId": "TC5D",
+    "tc_description": "Verify add place with different valid name(special characters)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "~!@#$%^&*()",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+  {
+
+    "tcId": "TC5E",
+    "tc_description": "Verify add place with different valid name(unicode)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "नमस्ते भारत",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+  {
+
+    "tcId": "TC5F",
+    "tc_description": "Verify add place with different valid name(emoji)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+
+  },
+
+
+  {
+    "tcId": "TC6A",
+    "tc_description": "Verify add place with different valid phone_number(standard format)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Test Address",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC6B",
+    "tc_description": "Verify add place with different valid phone_number(International)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+14155552671",
+      "address": "Test Address",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC6C",
+    "tc_description": "Verify add place with different valid phone_number(local)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC7A",
+    "tc_description": "Verify add place with different valid address(alphabetic)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC7B",
+    "tc_description": "Verify add place with different valid address(numeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "0123456789",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC7C",
+    "tc_description": "Verify add place with different valid address(alphanumeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address 0123456789",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC7D",
+    "tc_description": "Verify add place with different valid address(alphanumeric)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "~!@#$%^&*()",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC7E",
+    "tc_description": "Verify add place with different valid address(unicode)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "नमस्ते भारत",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC7F",
+    "tc_description": "Verify add place with different valid address(emoji)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "\uD83C\uDFE0\uD83C\uDFE1",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC8A",
+    "tc_description": "Verify add place with different valid types(singe type)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "basketball court"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC8B",
+    "tc_description": "Verify add place with different valid types(multiple type)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "basketball court","garden"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC9A",
+    "tc_description": "Verify add place with different valid website(http)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "basketball court","garden"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC9B",
+    "tc_description": "Verify add place with different valid website(https)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "basketball court","garden"
+      ],
+      "website": "https://test.com",
+      "language": "en-AED"
+    }
+
+  },
+
+  {
+    "tcId": "TC10A",
+    "tc_description": "Verify add place with different language(en-US)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "basketball court","garden"
+      ],
+      "website": "https://test.com",
+      "language": "en-US"
+    }
+
+  },
+
+  {
+    "tcId": "TC10B",
+    "tc_description": "Verify add place with different language(fr-FR)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "basketball court","garden"
+      ],
+      "website": "https://test.com",
+      "language": "fr-FR"
+    }
+
+  },
+
+  {
+    "tcId": "TC10C",
+    "tc_description": "Verify add place with different language(zh-CN)",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 90,
+        "lng": 180
+      },
+      "accuracy": 40,
+      "name": "Test Name",
+      "phone_number": "+639171234567",
+      "address": "Test Address",
+      "types": [
+        "basketball court","garden"
+      ],
+      "website": "https://test.com",
+      "language": "zh-CN"
+    }
+
+  }
+
+
+
+
+]

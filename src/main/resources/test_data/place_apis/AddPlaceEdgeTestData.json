@@ -1,0 +1,166 @@
+[
+
+  {
+    "testCase": "TC1 - Valid request with minimum lat",
+    "msg": "",
+    "statusCode": 200,
+    "location": {
+      "lat": -90,
+      "lng": 33.427362
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+    "testCase": "TC2 - Valid request with minimum lng",
+    "msg": "",
+    "statusCode": 200,
+    "location": {
+      "lat": -38.383494,
+      "lng": -180
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+    "testCase": "TC3 - Valid request with maximum lat",
+    "msg": "",
+    "statusCode": 200,
+    "location": {
+      "lat": 90,
+      "lng": 33.427362
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+    "testCase": "TC4 - Valid request with maximum lng",
+    "msg": "",
+    "statusCode": 200,
+    "location": {
+      "lat": -38.383494,
+      "lng": 180
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+    "testCase": "TC5 - Invalid request with exceeding minimum lat",
+    "msg": "Error - lat out of valid range",
+    "statusCode": 400,
+    "location": {
+      "lat": -100,
+      "lng": 33.427362
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+    "testCase": "TC6 - Invalid request with exceeding minimum lng",
+    "msg": "Error - lng out of valid range",
+    "statusCode": 400,
+    "location": {
+      "lat": 33.427362,
+      "lng": -190
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+    "testCase": "TC7 - Invalid request with exceeding maximum lat",
+    "msg": "Error - lat out of valid range",
+    "statusCode": 400,
+    "location": {
+      "lat": 91,
+      "lng": 33.427362
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  },
+
+  {
+    "testCase": "TC8 - Invalid request with exceeding maximum lng",
+    "msg": "Error - lng out of valid range",
+    "statusCode": 400,
+    "location": {
+      "lat": 33.427362,
+      "lng": 181
+    },
+    "accuracy": 100,
+    "name": "House Of Lucario",
+    "phone_number": "(+91) 123 456 7890",
+    "address": "Riverside 123 House Secret",
+    "types": [
+      "shoe park",
+      "shop"
+    ],
+    "website": "http://test.com",
+    "language": "en-AED"
+  }
+
+
+
+
+]
