@@ -40,7 +40,7 @@ public class StepBase {
 
         try {
 
-            FileInputStream propertiesInStream = new FileInputStream("src/main/resources/Global.properties");
+            FileInputStream propertiesInStream = new FileInputStream("src/main/resources/config/Global.properties");
             Properties properties = new Properties();
             properties.load(propertiesInStream);
             return properties.getProperty(key);

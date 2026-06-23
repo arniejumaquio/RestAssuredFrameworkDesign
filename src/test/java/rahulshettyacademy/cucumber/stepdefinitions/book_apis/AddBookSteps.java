@@ -84,8 +84,8 @@ public class AddBookSteps extends StepBase {
             Object requestPayLoadInObject = JSONUtility.convertMapToObject(requestPayLoadInMap);
             request =  given().log().all().body(requestPayLoadInObject);
 
-        }catch (IOException i){
-
+        } catch (IOException i) {
+            throw new RuntimeException("Failed to load test data from: " + testData, i);
         }
 
     }

@@ -25,6 +25,29 @@
   },
 
   {
+    "tcId": "TC2",
+    "tc_description": "Verify multiple add place",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": -28.123456,
+        "lng": 40.987654
+      },
+      "accuracy": 75,
+      "name": "Second Test Place",
+      "phone_number": "(+91) 987 654 3210",
+      "address": "Another Address",
+      "types": [
+        "bar"
+      ],
+      "website": "http://example.com",
+      "language": "en-US"
+    }
+  },
+
+  {
 
     "tcId": "TC2A",
     "tc_description": "Verify add place with different valid lat(zero)",

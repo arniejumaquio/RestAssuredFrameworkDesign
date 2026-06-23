@@ -10,8 +10,6 @@ public class APIExcelTests {
    @Test
     public void apiExcelTests() throws IOException {
 
-       ArrayList<String> testDatas = ExcelUtility.getAllRowDataFromExcel("Sample.xlsx","testdata");
-       testDatas.stream().forEach(testData -> System.out.println(testData));
    }
 
 

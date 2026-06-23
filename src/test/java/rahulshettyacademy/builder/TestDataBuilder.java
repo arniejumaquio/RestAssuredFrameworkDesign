@@ -1,13 +1,13 @@
 package rahulshettyacademy.builder;
 
-import rahulshettyacademy.pojo_classes.place_apis.request.AddPlaceRequest;
-import rahulshettyacademy.pojo_classes.place_apis.request.Location;
+import rahulshettyacademy.models.place_apis.request.AddPlaceRequest;
+import rahulshettyacademy.models.place_apis.request.Location;
 
 import java.util.Arrays;
 
 public class TestDataBuilder {
 
-    public AddPlaceRequest getAddPlacePayload(Double lat, Double lng, String accuracy, String name, String phone_number, String address, String[] types, String website, String language){
+    public AddPlaceRequest getAddPlacePayload(double lat, double lng, String accuracy, String name, String phone_number, String address, String[] types, String website, String language){
 
         AddPlaceRequest addPlaceRequest = new AddPlaceRequest();
         Location location = new Location();

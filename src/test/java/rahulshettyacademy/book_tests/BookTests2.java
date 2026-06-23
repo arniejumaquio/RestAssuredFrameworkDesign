@@ -6,12 +6,11 @@ import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import rahulshettyacademy.pojo_classes.book_apis.request.AddBookRequest;
-import rahulshettyacademy.pojo_classes.book_apis.request.DeleteBookRequest;
-import rahulshettyacademy.pojo_classes.book_apis.response.Book;
-import rahulshettyacademy.pojo_classes.book_apis.response.DeleteBookErrorResponse;
-import rahulshettyacademy.pojo_classes.book_apis.response.DeleteBookResponse;
-import rahulshettyacademy.pojo_classes.book_apis.response.GetBookByIdErrorResponse;
+import rahulshettyacademy.models.book_apis.request.AddBookRequest;
+import rahulshettyacademy.models.book_apis.request.DeleteBookRequest;
+import rahulshettyacademy.models.book_apis.response.Book;
+import rahulshettyacademy.models.book_apis.response.DeleteBookResponse;
+import rahulshettyacademy.models.book_apis.response.GetBookByIdErrorResponse;
 import rahulshettyacademy.utilities.JSONUtility;
 import java.io.IOException;
 import java.util.HashMap;
@@ -28,6 +27,7 @@ public class BookTests2 {
 
         RestAssured.baseURI ="http://216.10.245.166/";
         headers.put("Content-Type","application/json");
+        testData.put("aisle",JSONUtility.generateRandomNumber());
         AddBookRequest addBookRequest = new AddBookRequest(testData.get("name"),testData.get("isbn"),testData.get("aisle"),testData.get("author"));
         RequestSpecification request = given().log().all().headers(headers).body(addBookRequest);
         Response response = request.when().post("Library/Addbook.php").then().extract().response();
@@ -44,7 +44,7 @@ public class BookTests2 {
     @Test(dataProvider = "getAddBookData",priority = 2)
     public void getBookByAuthorNameTest(HashMap<String,String> testData){
 
-        RestAssured.baseURI ="http://216.10.245.166/";
+        //RestAssured.baseURI ="http://216.10.245.166/";
         RequestSpecification request = given().log().all().queryParams("AuthorName",testData.get("author"));
         Book[] books = request.when().get("Library/GetBook.php").then().log().all().assertThat().statusCode(200).extract().response().as(Book[].class);
         for(int i = 0; i < books.length;i++){
@@ -65,7 +65,7 @@ public class BookTests2 {
     @Test(priority = 3)
     public void deleteBookTest(){
 
-        RestAssured.baseURI ="http://216.10.245.166/";
+        //RestAssured.baseURI ="http://216.10.245.166/";
 
         DeleteBookRequest deleteBookRequest = new DeleteBookRequest(ID);
         RequestSpecification request = given().log().all().headers(headers).body(deleteBookRequest);
@@ -97,7 +97,7 @@ public class BookTests2 {
     @Test(priority = 5)
     public void getBookByIdTest(){
 
-        RestAssured.baseURI = "http://216.10.245.166/";
+       // RestAssured.baseURI = "http://216.10.245.166/";
         RequestSpecification request = given().log().all().queryParam("ID",ID);
         GetBookByIdErrorResponse response =  request.when().get("Library/GetBook.php").then().log().all().assertThat().statusCode(404).extract().response().as(GetBookByIdErrorResponse.class);
 
@@ -110,7 +110,7 @@ public class BookTests2 {
     @DataProvider
     public Object[][] getAddBookData() throws IOException {
 
-     List<HashMap<String,Object>> listOfHashMapDatas =  JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/book_apis/add/AddBookTestdata.json");
+        List<HashMap<String,Object>> listOfHashMapDatas =  JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/book_apis/add/AddBookTestdata.json");
 
         return new Object[][]{ {listOfHashMapDatas.get(0)} };
 

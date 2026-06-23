@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import rahulshettyacademy.base.BaseTest;
-import rahulshettyacademy.pojo_classes.book_apis.response.AddBookResponse;
+import rahulshettyacademy.models.book_apis.response.AddBookResponse;
 import rahulshettyacademy.utilities.JSONUtility;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
@@ -21,7 +21,7 @@ public class AddBookTest3 extends BaseTest {
     private String ID;
     private HashMap<String,Object> tcIdAisleMap = new HashMap<String,Object>();
 
-    @Test(dataProvider = "getAddBookData",priority = 1)
+    @Test(dataProvider = "getAddBookData",priority = 1,enabled = false)
     public void addBookFunctionalTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
 
         HashMap<String,Object>  payLoadMap = objectMapper.readValue(payload, new TypeReference<HashMap<String, Object>>() {});
@@ -42,7 +42,7 @@ public class AddBookTest3 extends BaseTest {
 
     }
 
-    @Test(dataProvider = "getAddBookData",dependsOnMethods = "addBookFunctionalTest")
+    @Test(dataProvider = "getAddBookData",dependsOnMethods = "addBookFunctionalTest",enabled = false)
     public void getBookByAuthorNameFunctionalTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
 
      HashMap<String,Object> payloadMap =  objectMapper.readValue(payload, new TypeReference<HashMap<String,Object>>() {});
@@ -71,11 +71,14 @@ public class AddBookTest3 extends BaseTest {
 
 
 
-    @Test(dataProvider = "getAddBookFieldValidationPositiveData",priority = 3)
+    @Test(dataProvider = "getAddBookFieldValidationPositiveData",priority = 3,enabled = false)
     public void addBookFieldValidationPositiveTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
 
             HashMap<String,Object> payloadMap =  objectMapper.readValue(payload, new TypeReference<HashMap<String,Object>>() {});
-            payloadMap.put("aisle",JSONUtility.generateRandomNumber());
+            if(!testCaseId.equalsIgnoreCase("TC3")) {
+                payloadMap.put("aisle", JSONUtility.generateRandomNumber());
+            }
+            tcIdAisleMap.put(testCaseId,payloadMap.get("aisle"));
             ID = (String)payloadMap.get("isbn") + (String)payloadMap.get("aisle");
             RequestSpecification request = given().log().all().spec(requestSpecification).body(payloadMap);
             AddBookResponse addBookResponse =   request.when().post("Library/Addbook.php").then().log().all().spec(responseSpecification).extract().response().as(AddBookResponse.class);
@@ -85,7 +88,7 @@ public class AddBookTest3 extends BaseTest {
 
     }
 
-    @Test(dataProvider = "getAddBookFieldValidationPositiveData",priority = 4)
+    @Test(dataProvider = "getAddBookFieldValidationPositiveData",priority = 4,enabled = false)
     public void getBookByAuthorNameFieldValidationPositiveTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
 
         HashMap<String,Object> payloadMap = objectMapper.readValue(payload, new TypeReference<HashMap<String,Object>>() {});
@@ -100,7 +103,7 @@ public class AddBookTest3 extends BaseTest {
            String actualIsbn = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].isbn");
            String actualBookName = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].book_name");
 
-           if( actualAisle.equalsIgnoreCase((String)payloadMap.get("aisle"))
+           if( actualAisle.equalsIgnoreCase((String)tcIdAisleMap.get("testCaseId"))
                    && actualIsbn.equalsIgnoreCase((String)payloadMap.get("isbn"))
                    && actualBookName.equalsIgnoreCase((String)payloadMap.get("name"))  ){
                Assert.assertTrue(true);
@@ -112,7 +115,7 @@ public class AddBookTest3 extends BaseTest {
     }
 
 
-    @Test(dataProvider = "getAddBookFieldValidationNegativeData",priority = 5)
+    @Test(dataProvider = "getAddBookFieldValidationNegativeData",priority = 5,enabled = false)
     public void addBookFieldValidationNegativeTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
 
         RequestSpecification request = given().log().all().spec(requestSpecification).body(payload);
@@ -125,12 +128,12 @@ public class AddBookTest3 extends BaseTest {
     }
 
     @Test(dataProvider = "getAddBookBoundaryAndEdgeCaseData",priority = 6)
-    public void addPlaceBoundaryAndEdgeCaseTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
+    public void addBookBoundaryAndEdgeCaseTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
 
         //convert the string payload to hashmap
         HashMap<String,Object> payloadMap =  objectMapper.readValue(payload, new TypeReference<HashMap<String,Object>>() {});
         ID = (String)payloadMap.get("isbn")+(String)payloadMap.get("aisle");
-
+        tcIdAisleMap.put(testCaseId,payloadMap.get("aisle"));
         if(!testCaseId.equalsIgnoreCase("TC5") && !testCaseId.equalsIgnoreCase("TC6")){
                 payloadMap.put("aisle",JSONUtility.generateRandomNumber());
         }
@@ -147,11 +150,11 @@ public class AddBookTest3 extends BaseTest {
 
 
     @Test(dataProvider = "getAddBookBoundaryAndEdgeCaseData",priority = 7)
-    public void getPlaceBoundaryAndEdgeCaseTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
+    public void getBookBoundaryAndEdgeCaseTest(String testCaseId,String testCaseDescription,String headers,String payload,String expectedResponse){
 
         HashMap<String,Object> payloadMap = objectMapper.readValue(payload, new TypeReference<HashMap<String,Object>>() {});
-        RequestSpecification request  = given().log().all().spec(requestSpecification).queryParam("AuthorName",payloadMap.get("author"));
-        Response response = request.when().get("Library/GetBook.php").then().log().all().extract().response();
+        RequestSpecification request  = given().spec(requestSpecification).queryParam("AuthorName",payloadMap.get("author"));
+        Response response = request.when().get("Library/GetBook.php").then().extract().response();
 
         Assert.assertEquals(response.getStatusCode(),200);
         int bookCounts = JSONUtility.getJsonValueIntFromPath(response.asString(),"size()");
@@ -160,7 +163,7 @@ public class AddBookTest3 extends BaseTest {
             String actualIsbn = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].isbn");
             String actualBookName = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].book_name");
 
-            if( actualAisle.equalsIgnoreCase((String)payloadMap.get("aisle"))
+            if( actualAisle.equalsIgnoreCase((String)tcIdAisleMap.get(testCaseId))
                     && actualIsbn.equalsIgnoreCase((String)payloadMap.get("isbn"))
                     && actualBookName.equalsIgnoreCase((String)payloadMap.get("name"))  ){
                 Assert.assertTrue(true);

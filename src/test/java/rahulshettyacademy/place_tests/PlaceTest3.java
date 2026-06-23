@@ -6,12 +6,11 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import rahulshettyacademy.base.BaseTest;
-import rahulshettyacademy.pojo_classes.place_apis.response.AddPlaceResponse;
-import rahulshettyacademy.pojo_classes.place_apis.response.GetPlaceResponse;
+import rahulshettyacademy.models.place_apis.response.AddPlaceResponse;
+import rahulshettyacademy.models.place_apis.response.GetPlaceResponse;
 import rahulshettyacademy.utilities.JSONUtility;
 import tools.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import static io.restassured.RestAssured.given;

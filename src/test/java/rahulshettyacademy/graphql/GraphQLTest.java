@@ -6,7 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import rahulshettyacademy.pojo_classes.place_apis.response.graphql.GraphQLQueryResponse;
+import rahulshettyacademy.models.place_apis.response.graphql.GraphQLQueryResponse;
 import rahulshettyacademy.utilities.AddBodyUtility;
 import rahulshettyacademy.utilities.JSONUtility;
 

@@ -4,7 +4,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import rahulshettyacademy.pojo_classes.token_apis.OauthResponse;
+import rahulshettyacademy.models.token_apis.OauthResponse;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -20,7 +20,7 @@ public class BaseTest {
     public void setup() throws IOException {
 
         PrintStream logStream = new PrintStream(new FileOutputStream("logs/logs.txt"));
-        requestSpecification = new RequestSpecBuilder().setBaseUri(getPropertyValue("baseUri")).setContentType(ContentType.JSON).addQueryParam("key","qaclick123")
+        requestSpecification = new RequestSpecBuilder().setBaseUri(getPropertyValue("baseurl")).setContentType(ContentType.JSON).addQueryParam("key","qaclick123")
                 .addFilter(RequestLoggingFilter.logRequestTo(logStream))
                 .addFilter(ResponseLoggingFilter.logResponseTo(logStream))
                 .build();
@@ -31,7 +31,9 @@ public class BaseTest {
 
     private String getPropertyValue(String key) throws IOException {
 
-        FileInputStream propertiesInStream = new FileInputStream("src/main/resources/test_data/book_apis/Place.properties");
+        FileInputStream propertiesInStream = new FileInputStream(
+                System.getProperty("user.dir") + "/src/main/resources/config/Global.properties"
+        );
         Properties properties = new Properties();
         properties.load(propertiesInStream);
 

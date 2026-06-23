@@ -7,10 +7,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import rahulshettyacademy.pojo_classes.course_details_apis.API;
-import rahulshettyacademy.pojo_classes.course_details_apis.CourseDetailsResponse;
-import rahulshettyacademy.pojo_classes.course_details_apis.Mobile;
-import rahulshettyacademy.pojo_classes.course_details_apis.WebAutomation;
+import rahulshettyacademy.models.course_details_apis.API;
+import rahulshettyacademy.models.course_details_apis.CourseDetailsResponse;
+import rahulshettyacademy.models.course_details_apis.Mobile;
+import rahulshettyacademy.models.course_details_apis.WebAutomation;
 
 import java.util.List;
 

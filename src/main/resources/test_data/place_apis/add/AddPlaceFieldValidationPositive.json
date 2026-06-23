@@ -1,0 +1,46 @@
+[
+  {
+    "tcId": "TC3",
+    "tc_description": "Verify add place with integer lat",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 45,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "House Of Tangerines",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  },
+  {
+    "tcId": "TC4",
+    "tc_description": "Verify add place with decimal lat",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "location": {
+        "lat": 99.78,
+        "lng": 33.427362
+      },
+      "accuracy": 50,
+      "name": "House Of Tangerines",
+      "phone_number": "(+91) 123 456 7890",
+      "address": "Secret",
+      "types": [
+        "shoe park"
+      ],
+      "website": "http://test.com",
+      "language": "en-AED"
+    }
+  }
+]

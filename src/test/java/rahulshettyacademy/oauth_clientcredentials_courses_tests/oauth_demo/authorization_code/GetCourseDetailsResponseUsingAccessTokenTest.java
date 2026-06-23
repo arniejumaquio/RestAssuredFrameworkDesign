@@ -6,7 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import rahulshettyacademy.cucumber.stepdefinitions.base.place_apis.StepBase;
-import rahulshettyacademy.pojo_classes.token_apis.OauthResponse;
+import rahulshettyacademy.models.token_apis.OauthResponse;
 
 import java.util.HashMap;
 import java.util.List;

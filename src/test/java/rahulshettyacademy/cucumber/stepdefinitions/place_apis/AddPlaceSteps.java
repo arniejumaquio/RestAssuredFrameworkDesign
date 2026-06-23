@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import rahulshettyacademy.cucumber.stepdefinitions.base.place_apis.StepBase;
-import rahulshettyacademy.pojo_classes.place_apis.response.AddPlaceResponse;
+import rahulshettyacademy.models.place_apis.response.AddPlaceResponse;
 import rahulshettyacademy.utilities.JSONUtility;
 import tools.jackson.databind.ObjectMapper;
 
@@ -42,6 +42,13 @@ public class AddPlaceSteps extends StepBase {
             addPlaceTestDatas = JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/place_apis/add/AddPlaceFunctional.json");
             matchedTestData =   addPlaceTestDatas.stream().filter(addPlaceTestData -> addPlaceTestData.get("tcId").equals(tcId) ).findFirst().orElse(null);
             payload = (HashMap<String, Object>)   matchedTestData.get("request");
+
+        } else if(testData.equalsIgnoreCase("field_validation_positive")){
+
+            addPlaceTestDatas = JSONUtility.getDataFromJsonFile("/src/main/resources/test_data/place_apis/add/AddPlaceFieldValidationPositive.json");
+            matchedTestData =   addPlaceTestDatas.stream().filter(addPlaceTestData -> addPlaceTestData.get("tcId").equals(tcId) ).findFirst().orElse(null);
+            payload = (HashMap<String, Object>)   matchedTestData.get("request");
+
         }
 
         request = given()

@@ -10,7 +10,7 @@ import io.restassured.specification.ResponseSpecification;
 
 import rahulshettyacademy.PlaceAPIResources;
 import rahulshettyacademy.builder.TestDataBuilder;
-import rahulshettyacademy.pojo_classes.place_apis.response.GetPlaceResponse;
+import rahulshettyacademy.models.place_apis.response.GetPlaceResponse;
 import rahulshettyacademy.utilities.JSONUtility;
 
 import java.io.IOException;

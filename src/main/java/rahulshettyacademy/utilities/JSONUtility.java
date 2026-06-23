@@ -4,9 +4,6 @@ import io.restassured.path.json.JsonPath;
 import org.apache.commons.io.FileUtils;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
-import tools.jackson.databind.DeserializationFeature;
-import tools.jackson.databind.json.JsonMapper;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -98,9 +95,7 @@ public class JSONUtility {
         //convert json file to string
         String jsonString = FileUtils.readFileToString(new File(System.getProperty("user.dir") + filePath));
         //convert json string to hashmap
-        ObjectMapper objectMapper = JsonMapper.builder()
-                .enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS)
-                .build();
+        ObjectMapper objectMapper = new ObjectMapper();
         List<HashMap<String, Object>> listOfData = objectMapper.readValue(jsonString, new TypeReference<List<HashMap<String, Object>>>() {
         });
 

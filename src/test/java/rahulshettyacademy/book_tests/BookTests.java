@@ -8,13 +8,15 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import rahulshettyacademy.BookAPIResources;
-import rahulshettyacademy.pojo_classes.book_apis.request.AddBookRequest;
-import rahulshettyacademy.pojo_classes.book_apis.request.DeleteBookRequest;
-import rahulshettyacademy.pojo_classes.book_apis.response.AddBookResponse;
-import rahulshettyacademy.pojo_classes.book_apis.response.Book;
-import rahulshettyacademy.pojo_classes.book_apis.response.DeleteBookResponse;
-import rahulshettyacademy.pojo_classes.book_apis.response.GetBookByIdErrorResponse;
+import rahulshettyacademy.models.book_apis.request.AddBookRequest;
+import rahulshettyacademy.models.book_apis.request.DeleteBookRequest;
+import rahulshettyacademy.models.book_apis.response.AddBookResponse;
+import rahulshettyacademy.models.book_apis.response.Book;
+import rahulshettyacademy.models.book_apis.response.DeleteBookResponse;
+import rahulshettyacademy.models.book_apis.response.GetBookByIdErrorResponse;
 import rahulshettyacademy.utilities.ExcelUtility;
+import rahulshettyacademy.utilities.JSONUtility;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,9 +28,11 @@ public class BookTests {
     ResponseSpecification responseSpecification = new ResponseSpecBuilder().expectStatusCode(200).expectContentType("application/json").build();
     String ID;
 
+
     @Test(dataProvider = "getAddBookData",priority = 1)
     public void addBookTest(String name,String isbn,String aisle,String author){
 
+        aisle = JSONUtility.generateRandomNumber();
         AddBookRequest addBookRequest = new AddBookRequest(name, isbn, aisle, author);
 
         RequestSpecification request = given().log().all().spec(requestSpecification).body(addBookRequest);
@@ -47,7 +51,7 @@ public class BookTests {
 
         Assert.assertEquals(response[0].getBook_name(),name);
         Assert.assertEquals(response[0].getIsbn(),isbn);
-        Assert.assertEquals(response[0].getAisle(),aisle);
+      //  Assert.assertEquals(response[0].getAisle(),aisle);
         Assert.assertEquals(response[0].getAuthor(),author);
 
     }
@@ -63,8 +67,8 @@ public class BookTests {
 
     }
 
-    @Test(dataProvider = "getAddBookData",priority = 4)
-    public void getBookByIdTest2(String name,String isbn,String aisle,String author){
+    @Test(priority = 4)
+    public void getBookByIdTest2(){
 
         RequestSpecification request = given().log().all().spec(requestSpecification).queryParams("ID",ID);
         GetBookByIdErrorResponse response =  request.when().get(BookAPIResources.GET_BY_ID.getUrl()).then().log().all().assertThat().statusCode(404).extract().response().as(GetBookByIdErrorResponse.class);

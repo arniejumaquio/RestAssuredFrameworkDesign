@@ -1,0 +1,418 @@
+[
+  {
+    "testCaseId": "TC1",
+    "testCaseDescription": "Verify add book api with valid data",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678101",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC2",
+    "testCaseDescription": "Verify add book api with duplicate data",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678101",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "Book Already Exists"
+    }
+  },
+  {
+    "testCaseId": "TC3",
+    "testCaseDescription": "Verify add book api with special characters in name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test!@#Name",
+      "isbn": "TestISBN",
+      "aisle": "345678103",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC4",
+    "testCaseDescription": "Verify add book api with alphanumeric in name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "TestName123",
+      "isbn": "TestISBN",
+      "aisle": "345678104",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC5",
+    "testCaseDescription": "Verify add book api with alphabet in name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "TestNameAlpha",
+      "isbn": "TestISBN",
+      "aisle": "345678105",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC6",
+    "testCaseDescription": "Verify add book api with numeric in name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "1234567890",
+      "isbn": "TestISBN",
+      "aisle": "345678106",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC7",
+    "testCaseDescription": "Verify add book api with special characters in isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "ISBN!@#$%",
+      "aisle": "345678107",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC8",
+    "testCaseDescription": "Verify add book api with alphanumeric in isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "ISBN12345",
+      "aisle": "345678108",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC9",
+    "testCaseDescription": "Verify add book api with alphabet in isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "ISBNALPHA",
+      "aisle": "345678109",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC10",
+    "testCaseDescription": "Verify add book api with numeric in isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678110",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC11",
+    "testCaseDescription": "Verify add book api with special characters in aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "A!@#45678",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC12",
+    "testCaseDescription": "Verify add book api with alphanumeric in aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "AISLE12345",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC13",
+    "testCaseDescription": "Verify add book api with alphabet in aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "AISLEABC",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC14",
+    "testCaseDescription": "Verify add book api with numeric in aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678114",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC15",
+    "testCaseDescription": "Verify add book api with special characters in author",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678115",
+      "author": "Author!@#$"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC16",
+    "testCaseDescription": "Verify add book api with alphanumeric in author",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678116",
+      "author": "Author12345"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC17",
+    "testCaseDescription": "Verify add book api with alphabet in author",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678117",
+      "author": "TestAuthorAlpha"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC18",
+    "testCaseDescription": "Verify add book api with numeric in author",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678118",
+      "author": "1234567890"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC19",
+    "testCaseDescription": "Verify add book api with minimum length in name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "A",
+      "isbn": "TestISBN",
+      "aisle": "345678119",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC20",
+    "testCaseDescription": "Verify add book api with maximum length in name",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRST",
+      "isbn": "TestISBN",
+      "aisle": "345678120",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC21",
+    "testCaseDescription": "Verify add book api with minimum length in isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "ISBN1",
+      "aisle": "345678121",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC22",
+    "testCaseDescription": "Verify add book api with maximum length in isbn",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "ISBN123456789AB",
+      "aisle": "345678122",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC23",
+    "testCaseDescription": "Verify add book api with minimum length in aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "34567",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC24",
+    "testCaseDescription": "Verify add book api with maximum length in aisle",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678901234567",
+      "author": "Test Author"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC25",
+    "testCaseDescription": "Verify add book api with minimum length in author",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678125",
+      "author": "A"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  },
+  {
+    "testCaseId": "TC26",
+    "testCaseDescription": "Verify add book api with maximum length in author",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "request": {
+      "name": "Test Name",
+      "isbn": "TestISBN",
+      "aisle": "345678126",
+      "author": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRST"
+    },
+    "expectedResponse": {
+      "Msg": "successfully added"
+    }
+  }
+]

@@ -17,7 +17,7 @@ public class ExcelUtility {
 
         ArrayList<String> data = new ArrayList<String>();
 
-        FileInputStream excelFileStream = new FileInputStream(System.getProperty("user.dir")+"/src/main/resources/test_data/"+fileName);
+        FileInputStream excelFileStream = new FileInputStream(System.getProperty("user.dir")+"/src/main/resources/test_data/book_apis/add/"+fileName);
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(excelFileStream);
         int numOfSheets = xssfWorkbook.getNumberOfSheets();
         for(int i = 0; i < numOfSheets; i++){

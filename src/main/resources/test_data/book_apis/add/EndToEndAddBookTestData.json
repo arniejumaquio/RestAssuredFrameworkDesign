@@ -1,9 +1,7 @@
 [
   {
-    "test": {
-      "testCase": "TC - 1 Valid Request with all required fields"
-    },
 
+    "testCase": "TC - 1 Valid Request with all required fields",
     "headers": {
       "Content-Type": "application/json"
     },

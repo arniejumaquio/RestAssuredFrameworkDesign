@@ -11,68 +11,80 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import rahulshettyacademy.utilities.AddBodyUtility;
 import rahulshettyacademy.utilities.JSONUtility;
+
+import java.util.ArrayList;
+
 import static io.restassured.RestAssured.given;
 
 public class AddBookTest {
 
     RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("http://216.10.245.166").setContentType(ContentType.JSON).build();
     ResponseSpecification responseSpecification =  new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+    ArrayList<String> IDs = new ArrayList<String>();
 
     @Test(dataProvider = "Books Data Set")
     public void addBookTest(String name,String isbn,String aisle,String author){
 
-
+       aisle = JSONUtility.generateRandomNumber();
        RequestSpecification request = given().log().all().spec(requestSpecification).body(AddBodyUtility.getAddBookBody(name,isbn,aisle,author));
 
         Response response = request.when().post("/Library/Addbook.php").
         then().log().all().spec(responseSpecification).extract().response();
 
-        String msg = JSONUtility.getJsonValueStringFromPath(response.asString(),"Msg");
-        String ID = JSONUtility.getJsonValueStringFromPath(response.asString(),"ID");
+        String actualMsg = JSONUtility.getJsonValueStringFromPath(response.asString(),"Msg");
+        String actualID = JSONUtility.getJsonValueStringFromPath(response.asString(),"ID");
 
+        IDs.add(isbn+aisle);
         Assert.assertTrue(response.getStatusCode() == 200);
-        Assert.assertEquals(msg,"successfully added");
-        Assert.assertEquals(ID,isbn+aisle);
+        Assert.assertEquals(actualMsg,"successfully added");
+        Assert.assertEquals(actualID,isbn+aisle);
 
     }
 
 
-    @Test(dataProvider = "Books Data Set")
-    public void deleteBookTest(String name,String isbn,String aisle,String author){
+    @Test(dependsOnMethods = "addBookTest")
+    public void deleteBookTest(){
 
-        RequestSpecification request =  given().log().all().spec(requestSpecification).body(AddBodyUtility.getDeleteBookBody(isbn+aisle));
+        for(int i = 0; i < IDs.size(); i++) {
+            RequestSpecification request = given().log().all().spec(requestSpecification).body(AddBodyUtility.getDeleteBookBody(IDs.get(i)));
+            Response response = request.when().delete("/Library/DeleteBook.php").
+                    then().log().all().spec(responseSpecification).extract().response();
 
-        Response response =request.when().delete("/Library/DeleteBook.php").
-        then().log().all().spec(responseSpecification).extract().response();
+            String msg = JSONUtility.getJsonValueStringFromPath(response.asString(), "msg");
 
-        String msg = JSONUtility.getJsonValueStringFromPath(response.asString(),"msg");
-
-        Assert.assertTrue(response.getStatusCode() == 200);
-        Assert.assertEquals(msg,"book is successfully deleted");
+            Assert.assertTrue(response.getStatusCode() == 200);
+            Assert.assertEquals(msg, "book is successfully deleted");
+        }
 
     }
 
 
-    @Test(dataProvider = "Books Data Set")
+    @Test(dataProvider = "Books Data Set",dependsOnMethods = "deleteBookTest")
     public void getBookByAuthorNameTest(String name,String isbn,String aisle,String author){
 
-        RequestSpecification request = given().log().all().spec(requestSpecification).queryParam("AuthorName",author);
-        Response response =  request.when().get("/Library/GetBook.php").
-                then().log().all().spec(responseSpecification).extract().response();
+        for(int j = 0; j < IDs.size(); j++) {
 
-       int responseArraySize = JSONUtility.getJsonValueIntFromPath(response.asString(),"size()");
-       for(int i = 0; i < responseArraySize; i++){
-           String actualIsbn = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].isbn");
-           String actualAisle = JSONUtility.getJsonValueStringFromPath(response.asString(),"["+i+"].aisle");
-           String actualId = actualIsbn + actualAisle;
+            RequestSpecification request = given().log().all().spec(requestSpecification).queryParam("AuthorName", author);
+            Response response = request.when().get("/Library/GetBook.php").
+                    then().log().all().spec(responseSpecification).extract().response();
 
-           if(!(actualId.equalsIgnoreCase(isbn+aisle))){
-               //means its deleted successfuly thats why its not showing in the get response
-               Assert.assertTrue(true);
-           }else {
-               Assert.assertTrue(false);
-           }
-       }
+            int responseArraySize = JSONUtility.getJsonValueIntFromPath(response.asString(), "size()");
+            for (int i = 0; i < responseArraySize; i++) {
+                String actualIsbn = JSONUtility.getJsonValueStringFromPath(response.asString(), "["+i+"].isbn");
+                String actualAisle = JSONUtility.getJsonValueStringFromPath(response.asString(), "["+i+"].aisle");
+                String actualId = actualIsbn + actualAisle;
+
+
+                if (!(actualId.equalsIgnoreCase(IDs.get(j)))) {
+                    //means its deleted successfuly thats why its not showing in the get response
+                    Assert.assertTrue(true);
+                } else {
+                    Assert.assertTrue(false);
+                }
+
+            }
+
+        }
 
     }
 
