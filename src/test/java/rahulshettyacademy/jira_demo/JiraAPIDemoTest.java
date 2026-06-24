@@ -20,7 +20,7 @@ public class JiraAPIDemoTest {
         String summary = "12/29/2015 Bug Ticket";
         String description = "Creating of an issue using project keys and issue type names using the REST API";
 
-        RestAssured.baseURI = "https://mayaph.atlassian.net";
+        RestAssured.baseURI = "https://atlassian.net";
         String response = given().log().all().header("Content-Type","application/json").header("Authorization","Basic YXJuaWUuanVtYXF1aW9AcGF5bWF5YS5jb206QVRBVFQzeEZmR0YwU1NVbnhOeXBPVWxOX0duSnZsRWRPNGFXeHVJeUItY2VDZ1JPUFk3d1VlNGdJLXNWRkR2bVhVSV90UFd4MHdjcUlDeEF2OHowLXM5d1hCQ2FVTjZSTGlXbHRfeVh6U2hLUllYYjhOMnk2bHJmWnFYVDFTckYzcG1tYUFsQnNuTFBiXzd4UjNIV2t0bWV2UU5YMkdZUGMydlZDcDNTV2JIMmp0bVpMQmZFNm93PTg0MDlFNUIy")
                 .body(AddBodyUtility.getCreateBugBody(key,summary,description)).
         when().post("/browse/LCI-48718").

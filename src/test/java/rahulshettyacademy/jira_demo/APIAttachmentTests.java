@@ -25,7 +25,7 @@ public class APIAttachmentTests  {
          HashMap<String,Object>  test =  (HashMap<String, Object>)eachHashMap.get("test");
          HashMap<String,Object> headers = (HashMap<String, Object>) eachHashMap.get("headers");
 
-         RestAssured.baseURI = "https://mayaph.atlassian.net";
+         RestAssured.baseURI = "https://atlassian.net";
          RequestSpecification request = given().log().all().headers(headers).pathParam("bugId",test.get("bugId")).multiPart("file",new File(test.get("file").toString()));
          Response response = request.when().post("/rest/api/3/issue/{bugId}/attachments").then().log().all().extract().response();
 

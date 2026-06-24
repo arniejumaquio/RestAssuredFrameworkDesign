@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 
 public class ApiAttachmentTest2 {
 
-    RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("https://mayaph.atlassian.net")
+    RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("https://atlassian.net")
             .addHeader("X-Atlassian-Token","nocheck")
             .addHeader("Authorization","Basic YXJuaWUuanVtYXF1aW9AcGF5bWF5YS5jb206QVRBVFQzeEZmR0YwU1NVbnhOeXBPVWxOX0duSnZsRWRPNGFXeHVJeUItY2VDZ1JPUFk3d1VlNGdJLXNWRkR2bVhVSV90UFd4MHdjcUlDeEF2OHowLXM5d1hCQ2FVTjZSTGlXbHRfeVh6U2hLUllYYjhOMnk2bHJmWnFYVDFTckYzcG1tYUFsQnNuTFBiXzd4UjNIV2t0bWV2UU5YMkdZUGMydlZDcDNTV2JIMmp0bVpMQmZFNm93PTg0MDlFNUIy")
             .addPathParam("id",1564639).build();
@@ -32,9 +32,9 @@ public class ApiAttachmentTest2 {
 
         Assert.assertTrue(response.getStatusCode() == 200);
         JsonPath jsonPath = new JsonPath(response.asString());
-        Assert.assertTrue(jsonPath.getString("self").contains("https://mayaph.atlassian.net/rest/api/3/"));
+        Assert.assertTrue(jsonPath.getString("self").contains("https://atlassian.net/rest/api/3/"));
         Assert.assertNotNull(jsonPath.get("id"));
-        Assert.assertTrue(jsonPath.getString("author.self").contains("https://mayaph.atlassian.net/rest/api/3/"));
+        Assert.assertTrue(jsonPath.getString("author.self").contains("https://atlassian.net/rest/api/3/"));
     }
 
 
