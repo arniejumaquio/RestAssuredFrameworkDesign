@@ -1,5 +1,5 @@
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -34,7 +34,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "Test ISBN503120583"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -69,7 +69,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "Test ISBN853111928"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -104,7 +104,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "Test ISBN118656806"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -139,7 +139,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "Test ISBN341414168"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -174,7 +174,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "Test ISBN485739148"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -209,7 +209,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "QWERTYUIOPASDFGHJKLZXCVBNM570375678"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -244,7 +244,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "0123456789169083268"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -279,7 +279,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "ABCDEFG12345417202023"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -314,7 +314,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "TESTISBN323039746"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -349,7 +349,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "TESTISBN882442721"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -384,7 +384,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "TESTISBN773649057"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -419,7 +419,7 @@ Content-Type: application/json;charset=UTF-8
     "ID": "TESTISBN367912925"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -448,7 +448,7 @@ Content-Length: 0
 Connection: close
 Content-Type: application/json; charset=UTF-8
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/Library/Addbook.php?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/Library/Addbook.php?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123

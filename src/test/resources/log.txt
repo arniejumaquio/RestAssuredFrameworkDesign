@@ -1,5 +1,5 @@
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/maps/api/place/add/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -26,7 +26,7 @@ Body:
     "language": "en-AED"
 }
 HTTP/1.1 200 OK
-Date: Fri, 29 May 2026 03:01:08 GMT
+Date: Sat, 27 Jun 2026 15:14:13 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Strict-Transport-Security: max-age=604800; includeSubDomains
 Access-Control-Allow-Origin: *
@@ -40,8 +40,8 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "61f80cc3f9a9e6340ced0e00e4534778",
+    "place_id": "f2bf072d667acf4b4d49e4064a12209b",
     "scope": "APP",
-    "reference": "a04273618704a6e67dcea14db8a8effba04273618704a6e67dcea14db8a8effb",
-    "id": "a04273618704a6e67dcea14db8a8effb"
+    "reference": "aee518fe508e6bf0a5bda07160b210f2aee518fe508e6bf0a5bda07160b210f2",
+    "id": "aee518fe508e6bf0a5bda07160b210f2"
 }

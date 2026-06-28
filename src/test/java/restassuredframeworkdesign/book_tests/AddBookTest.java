@@ -1,0 +1,104 @@
+package restassuredframeworkdesign.book_tests;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import restassuredframeworkdesign.utilities.AddBodyUtility;
+import restassuredframeworkdesign.utilities.JSONUtility;
+
+import java.util.ArrayList;
+
+import static io.restassured.RestAssured.given;
+
+public class AddBookTest {
+
+    RequestSpecification requestSpecification = new RequestSpecBuilder().setBaseUri("http://216.10.245.166").setContentType(ContentType.JSON).build();
+    ResponseSpecification responseSpecification =  new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+    ArrayList<String> IDs = new ArrayList<String>();
+
+    @Test(dataProvider = "Books Data Set")
+    public void addBookTest(String name,String isbn,String aisle,String author){
+
+       aisle = JSONUtility.generateRandomNumber();
+       RequestSpecification request = given().log().all().spec(requestSpecification).body(AddBodyUtility.getAddBookBody(name,isbn,aisle,author));
+
+        Response response = request.when().post("/Library/Addbook.php").
+        then().log().all().spec(responseSpecification).extract().response();
+
+        String actualMsg = JSONUtility.getJsonValueStringFromPath(response.asString(),"Msg");
+        String actualID = JSONUtility.getJsonValueStringFromPath(response.asString(),"ID");
+
+        IDs.add(isbn+aisle);
+        Assert.assertTrue(response.getStatusCode() == 200);
+        Assert.assertEquals(actualMsg,"successfully added");
+        Assert.assertEquals(actualID,isbn+aisle);
+
+    }
+
+
+    @Test(dependsOnMethods = "addBookTest")
+    public void deleteBookTest(){
+
+        for(int i = 0; i < IDs.size(); i++) {
+            RequestSpecification request = given().log().all().spec(requestSpecification).body(AddBodyUtility.getDeleteBookBody(IDs.get(i)));
+            Response response = request.when().delete("/Library/DeleteBook.php").
+                    then().log().all().spec(responseSpecification).extract().response();
+
+            String msg = JSONUtility.getJsonValueStringFromPath(response.asString(), "msg");
+
+            Assert.assertTrue(response.getStatusCode() == 200);
+            Assert.assertEquals(msg, "book is successfully deleted");
+        }
+
+    }
+
+
+    @Test(dataProvider = "Books Data Set",dependsOnMethods = "deleteBookTest")
+    public void getBookByAuthorNameTest(String name,String isbn,String aisle,String author){
+
+        for(int j = 0; j < IDs.size(); j++) {
+
+            RequestSpecification request = given().log().all().spec(requestSpecification).queryParam("AuthorName", author);
+            Response response = request.when().get("/Library/GetBook.php").
+                    then().log().all().spec(responseSpecification).extract().response();
+
+            int responseArraySize = JSONUtility.getJsonValueIntFromPath(response.asString(), "size()");
+            for (int i = 0; i < responseArraySize; i++) {
+                String actualIsbn = JSONUtility.getJsonValueStringFromPath(response.asString(), "["+i+"].isbn");
+                String actualAisle = JSONUtility.getJsonValueStringFromPath(response.asString(), "["+i+"].aisle");
+                String actualId = actualIsbn + actualAisle;
+
+
+                if (!(actualId.equalsIgnoreCase(IDs.get(j)))) {
+                    //means its deleted successfuly thats why its not showing in the get response
+                    Assert.assertTrue(true);
+                } else {
+                    Assert.assertTrue(false);
+                }
+
+            }
+
+        }
+
+    }
+
+    @DataProvider(name="Books Data Set")
+    public Object[][] getBookData(){
+
+       return new Object[][] {
+
+               {"Test Name","ISBN","34567891","Test Author"},
+               {"Test Name","ISBN","34567892","Test Author"},
+               {"Test Name","ISBN","34567893","Test Author"}
+
+       };
+
+    }
+
+}

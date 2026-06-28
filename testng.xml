@@ -3,7 +3,7 @@
 <suite name="Rest Assured Test Suite">
     <test name="Add Book API Tests">
         <packages>
-            <package name="rahulshettyacademy.cucumber.runner.book_apis"/>
+            <package name="restassuredframeworkdesign.cucumber.runner.book_apis"/>
         </packages>
     </test>
 </suite>

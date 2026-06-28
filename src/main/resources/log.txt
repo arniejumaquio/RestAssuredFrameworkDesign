@@ -1,5 +1,5 @@
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/maps/api/place/add/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -47,7 +47,7 @@ Content-Type: application/json;charset=UTF-8
     "id": "1e065be98b51d28cf621b51b199d5d1a"
 }
 Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=0272c5c9138f4041c0242b5b681100c2
+Request URI:	https://restassuredframeworkdesign.com/maps/api/place/get/json?key=qaclick123&place_id=0272c5c9138f4041c0242b5b681100c2
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -86,7 +86,7 @@ Content-Type: application/json;charset=UTF-8
     "language": "Tagalog"
 }
 Request method:	POST
-Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/maps/api/place/add/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -134,7 +134,7 @@ Content-Type: application/json;charset=UTF-8
     "id": "483a0209c7ac42d60c8ac9196a34e6fa"
 }
 Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=376f7504db66fd5307b4e4d8a029750c
+Request URI:	https://restassuredframeworkdesign.com/maps/api/place/get/json?key=qaclick123&place_id=376f7504db66fd5307b4e4d8a029750c
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
@@ -173,7 +173,7 @@ Content-Type: application/json;charset=UTF-8
     "language": "Chavacano"
 }
 Request method:	DELETE
-Request URI:	https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
+Request URI:	https://restassuredframeworkdesign.com/maps/api/place/delete/json?key=qaclick123
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
